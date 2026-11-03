@@ -1206,7 +1206,7 @@ nem szerepel benne, írd: "Nem tudom a forrás alapján."</pre>
       </div>
     </div>
     <div class="controls">
-      <div class="chips" role="group" aria-label="Szűrés lépés szerint">
+      <div class="chips" id="cat-chips" role="group" aria-label="Szűrés lépés szerint">
         <button class="chip" type="button" data-cat="all" aria-pressed="true">Mind (124)</button>
         <button class="chip" type="button" data-cat="s1-tema" aria-pressed="false">1. Téma és probléma meghatározása</button>
         <button class="chip" type="button" data-cat="s2-irodalom" aria-pressed="false">2. Szakirodalom feltárása</button>
@@ -1217,6 +1217,12 @@ nem szerepel benne, írd: "Nem tudom a forrás alapján."</pre>
         <button class="chip" type="button" data-cat="s7-kovetkeztetes" aria-pressed="false">7. Következtetések megfogalmazása</button>
         <button class="chip" type="button" data-cat="s8-iras" aria-pressed="false">8. Megírás és hivatkozás</button>
         <button class="chip" type="button" data-cat="s9-publikalas" aria-pressed="false">9. Publikálás és disszemináció</button>
+      </div>
+      <div class="chips" id="price-chips" role="group" aria-label="Szűrés ár szerint">
+        <button class="chip" type="button" data-price="all" aria-pressed="true">Ár: Mind</button>
+        <button class="chip" type="button" data-price="free" aria-pressed="false">Ingyenes</button>
+        <button class="chip" type="button" data-price="mixed" aria-pressed="false">Freemium</button>
+        <button class="chip" type="button" data-price="paid" aria-pressed="false">Fizetős</button>
       </div>
       <input class="search" id="q" type="search" placeholder="Keresés névben vagy leírásban" aria-label="Keresés az eszközök között">
     </div>
@@ -1233,76 +1239,76 @@ nem szerepel benne, írd: "Nem tudom a forrás alapján."</pre>
         <div class="scroll"><table>
           <thead><tr><th>Eszköz</th><th>Rövid leírás</th><th>Ár</th><th>Link</th></tr></thead>
           <tbody>
-            <tr><td class="name">Aveksana</td><td>Kutatási rés (gap) azonosítására és eredeti témaötletek generálására fókuszáló platform; „Research Gap Score”-t ad a téma újdonságtartalmáról.</td><td>Freemium</td><td><a href="https://aveksana.com" target="_blank" rel="noopener">aveksana.com</a></td></tr>
-            <tr><td class="name">Paperguide — Research Topic Generator</td><td>Szakterület és kutatási szándék alapján trendi, kutatásra érdemes témaötleteket generál.</td><td>Ingyenes</td><td><a href="https://paperguide.ai/research-topic-generator/" target="_blank" rel="noopener">paperguide.ai/research-topic-generator</a></td></tr>
-            <tr><td class="name">AnswerThis — Research Gap Finder</td><td>Megadott témában automatikusan feltárja az eddig nem vizsgált kérdéseket, ellentmondó eredményeket és alulkutatott területeket, idézetekkel alátámasztva.</td><td>Freemium</td><td><a href="https://answerthis.io/ai/research-gap-finder" target="_blank" rel="noopener">answerthis.io/ai/research-gap-finder</a></td></tr>
-            <tr><td class="name">Dimensions Research Strategy</td><td>AI-alapú kutatás-stratégiai elemző: publikációk, pályázatok, szabadalmak, szakpolitikai dokumentumok alapján mutatja a feltörekvő trendeket és alulkutatott területeket.</td><td>Fizetős</td><td><a href="https://www.digital-science.com/products/dimensions-research-strategy/" target="_blank" rel="noopener">www.digital-science.com/products/dimensions-research-strategy</a></td></tr>
-            <tr><td class="name">Exploding Topics</td><td>Trendfigyelő platform, amely AI-elemzéssel azonosítja a gyorsan felívelő témákat — a kutatási téma aktualitásának ellenőrzésére.</td><td>Fizetős</td><td><a href="https://explodingtopics.com" target="_blank" rel="noopener">explodingtopics.com</a></td></tr>
-            <tr><td class="name">Miro AI Mind Map</td><td>AI-alapú gondolattérkép-generátor: egy megadott témából automatikusan elágazó altémákat vázol fel, hasznos a brainstorming fázisban.</td><td>Freemium</td><td><a href="https://miro.com/mind-map/" target="_blank" rel="noopener">miro.com/mind-map</a></td></tr>
-            <tr><td class="name">Perplexity (Research mód)</td><td>Dedikált „Research” módja a széles érdeklődési terület feltárásához, aktuális trendek és háttérkontextus gyors összegyűjtéséhez.</td><td>Freemium</td><td><a href="https://www.perplexity.ai" target="_blank" rel="noopener">www.perplexity.ai</a></td></tr>
-            <tr><td class="name">ChatGPT</td><td>Konverzációs MI, amely a kapott input alapján emberhez hasonló szöveget generál; jó kiindulópont a témaszűkítő beszélgetéshez.</td><td>Freemium</td><td><a href="https://chatgpt.com/" target="_blank" rel="noopener">chatgpt.com</a></td></tr>
-            <tr><td class="name">Claude</td><td>Az Anthropic által kifejlesztett társalgási mesterséges intelligencia, kutatási ötletelésre és szövegértésre is használható.</td><td>Freemium</td><td><a href="https://claude.ai" target="_blank" rel="noopener">claude.ai</a></td></tr>
-            <tr><td class="name">Gemini</td><td>A Google által kifejlesztett társalgási mesterséges intelligencia, téma- és kutatásirány-ötleteléshez is használható.</td><td>Freemium</td><td><a href="https://gemini.google.com/app" target="_blank" rel="noopener">gemini.google.com/app</a></td></tr>
-            <tr><td class="name">Hugging Chat</td><td>A Hugging Face nyílt forráskódú beszélgető AI-ja, több nyílt LLM közül választva.</td><td>Ingyenes</td><td><a href="https://huggingface.co/chat/" target="_blank" rel="noopener">huggingface.co/chat</a></td></tr>
-            <tr><td class="name">Llama</td><td>A Meta által fejlesztett nyílt társalgási MI-modellcsalád, helyben is futtatható kutatási célokra.</td><td>Ingyenes</td><td><a href="https://www.llama.com/" target="_blank" rel="noopener">www.llama.com</a></td></tr>
-            <tr><td class="name">Microsoft Copilot (Corvinus biztonságos verzió)</td><td>Microsoft termékekbe integrált MI-asszisztens; Edge böngészőből intézményi hitelesítéssel biztonságos, dokumentumfeltöltésre is alkalmas LLM-környezet.</td><td>Ingyenes (intézményi)</td><td><a href="https://copilot.microsoft.com" target="_blank" rel="noopener">copilot.microsoft.com</a></td></tr>
-            <tr><td class="name">Genspark</td><td>Valós idejű internetkapcsolattal rendelkező RAG-eszköz, amely több MI-ügynököt (Claude, Gemini, GPT-4o) futtat párhuzamosan egy témán; hasznos korai kutatási ötleteléshez vagy pályázati témák feltárásához.</td><td>Freemium</td><td><a href="https://www.genspark.ai/" target="_blank" rel="noopener">www.genspark.ai</a></td></tr>
+            <tr data-price="mixed"><td class="name">Aveksana</td><td>Kutatási rés (gap) azonosítására és eredeti témaötletek generálására fókuszáló platform; „Research Gap Score”-t ad a téma újdonságtartalmáról.</td><td>Freemium</td><td><a href="https://aveksana.com" target="_blank" rel="noopener">aveksana.com</a></td></tr>
+            <tr data-price="free"><td class="name">Paperguide — Research Topic Generator</td><td>Szakterület és kutatási szándék alapján trendi, kutatásra érdemes témaötleteket generál.</td><td>Ingyenes</td><td><a href="https://paperguide.ai/research-topic-generator/" target="_blank" rel="noopener">paperguide.ai/research-topic-generator</a></td></tr>
+            <tr data-price="mixed"><td class="name">AnswerThis — Research Gap Finder</td><td>Megadott témában automatikusan feltárja az eddig nem vizsgált kérdéseket, ellentmondó eredményeket és alulkutatott területeket, idézetekkel alátámasztva.</td><td>Freemium</td><td><a href="https://answerthis.io/ai/research-gap-finder" target="_blank" rel="noopener">answerthis.io/ai/research-gap-finder</a></td></tr>
+            <tr data-price="paid"><td class="name">Dimensions Research Strategy</td><td>AI-alapú kutatás-stratégiai elemző: publikációk, pályázatok, szabadalmak, szakpolitikai dokumentumok alapján mutatja a feltörekvő trendeket és alulkutatott területeket.</td><td>Fizetős</td><td><a href="https://www.digital-science.com/products/dimensions-research-strategy/" target="_blank" rel="noopener">www.digital-science.com/products/dimensions-research-strategy</a></td></tr>
+            <tr data-price="paid"><td class="name">Exploding Topics</td><td>Trendfigyelő platform, amely AI-elemzéssel azonosítja a gyorsan felívelő témákat — a kutatási téma aktualitásának ellenőrzésére.</td><td>Fizetős</td><td><a href="https://explodingtopics.com" target="_blank" rel="noopener">explodingtopics.com</a></td></tr>
+            <tr data-price="mixed"><td class="name">Miro AI Mind Map</td><td>AI-alapú gondolattérkép-generátor: egy megadott témából automatikusan elágazó altémákat vázol fel, hasznos a brainstorming fázisban.</td><td>Freemium</td><td><a href="https://miro.com/mind-map/" target="_blank" rel="noopener">miro.com/mind-map</a></td></tr>
+            <tr data-price="mixed"><td class="name">Perplexity (Research mód)</td><td>Dedikált „Research” módja a széles érdeklődési terület feltárásához, aktuális trendek és háttérkontextus gyors összegyűjtéséhez.</td><td>Freemium</td><td><a href="https://www.perplexity.ai" target="_blank" rel="noopener">www.perplexity.ai</a></td></tr>
+            <tr data-price="mixed"><td class="name">ChatGPT</td><td>Konverzációs MI, amely a kapott input alapján emberhez hasonló szöveget generál; jó kiindulópont a témaszűkítő beszélgetéshez.</td><td>Freemium</td><td><a href="https://chatgpt.com/" target="_blank" rel="noopener">chatgpt.com</a></td></tr>
+            <tr data-price="mixed"><td class="name">Claude</td><td>Az Anthropic által kifejlesztett társalgási mesterséges intelligencia, kutatási ötletelésre és szövegértésre is használható.</td><td>Freemium</td><td><a href="https://claude.ai" target="_blank" rel="noopener">claude.ai</a></td></tr>
+            <tr data-price="mixed"><td class="name">Gemini</td><td>A Google által kifejlesztett társalgási mesterséges intelligencia, téma- és kutatásirány-ötleteléshez is használható.</td><td>Freemium</td><td><a href="https://gemini.google.com/app" target="_blank" rel="noopener">gemini.google.com/app</a></td></tr>
+            <tr data-price="free"><td class="name">Hugging Chat</td><td>A Hugging Face nyílt forráskódú beszélgető AI-ja, több nyílt LLM közül választva.</td><td>Ingyenes</td><td><a href="https://huggingface.co/chat/" target="_blank" rel="noopener">huggingface.co/chat</a></td></tr>
+            <tr data-price="free"><td class="name">Llama</td><td>A Meta által fejlesztett nyílt társalgási MI-modellcsalád, helyben is futtatható kutatási célokra.</td><td>Ingyenes</td><td><a href="https://www.llama.com/" target="_blank" rel="noopener">www.llama.com</a></td></tr>
+            <tr data-price="free"><td class="name">Microsoft Copilot (Corvinus biztonságos verzió)</td><td>Microsoft termékekbe integrált MI-asszisztens; Edge böngészőből intézményi hitelesítéssel biztonságos, dokumentumfeltöltésre is alkalmas LLM-környezet.</td><td>Ingyenes (intézményi)</td><td><a href="https://copilot.microsoft.com" target="_blank" rel="noopener">copilot.microsoft.com</a></td></tr>
+            <tr data-price="mixed"><td class="name">Genspark</td><td>Valós idejű internetkapcsolattal rendelkező RAG-eszköz, amely több MI-ügynököt (Claude, Gemini, GPT-4o) futtat párhuzamosan egy témán; hasznos korai kutatási ötleteléshez vagy pályázati témák feltárásához.</td><td>Freemium</td><td><a href="https://www.genspark.ai/" target="_blank" rel="noopener">www.genspark.ai</a></td></tr>
           </tbody>
         </table></div>
         <div class="tool-cards">
-          <details class="tool-card">
+          <details class="tool-card" data-price="mixed">
             <summary><span class="tool-name">Aveksana</span><span class="price-badge price-mixed">Freemium</span></summary>
             <div class="tool-card-body"><p>Kutatási rés (gap) azonosítására és eredeti témaötletek generálására fókuszáló platform; „Research Gap Score”-t ad a téma újdonságtartalmáról.</p><a class="tool-link" href="https://aveksana.com" target="_blank" rel="noopener">Megnyitás &#8599;</a></div>
           </details>
-          <details class="tool-card">
+          <details class="tool-card" data-price="free">
             <summary><span class="tool-name">Paperguide — Research Topic Generator</span><span class="price-badge price-free">Ingyenes</span></summary>
             <div class="tool-card-body"><p>Szakterület és kutatási szándék alapján trendi, kutatásra érdemes témaötleteket generál.</p><a class="tool-link" href="https://paperguide.ai/research-topic-generator/" target="_blank" rel="noopener">Megnyitás &#8599;</a></div>
           </details>
-          <details class="tool-card">
+          <details class="tool-card" data-price="mixed">
             <summary><span class="tool-name">AnswerThis — Research Gap Finder</span><span class="price-badge price-mixed">Freemium</span></summary>
             <div class="tool-card-body"><p>Megadott témában automatikusan feltárja az eddig nem vizsgált kérdéseket, ellentmondó eredményeket és alulkutatott területeket, idézetekkel alátámasztva.</p><a class="tool-link" href="https://answerthis.io/ai/research-gap-finder" target="_blank" rel="noopener">Megnyitás &#8599;</a></div>
           </details>
-          <details class="tool-card">
+          <details class="tool-card" data-price="paid">
             <summary><span class="tool-name">Dimensions Research Strategy</span><span class="price-badge price-paid">Fizetős</span></summary>
             <div class="tool-card-body"><p>AI-alapú kutatás-stratégiai elemző: publikációk, pályázatok, szabadalmak, szakpolitikai dokumentumok alapján mutatja a feltörekvő trendeket és alulkutatott területeket.</p><a class="tool-link" href="https://www.digital-science.com/products/dimensions-research-strategy/" target="_blank" rel="noopener">Megnyitás &#8599;</a></div>
           </details>
-          <details class="tool-card">
+          <details class="tool-card" data-price="paid">
             <summary><span class="tool-name">Exploding Topics</span><span class="price-badge price-paid">Fizetős</span></summary>
             <div class="tool-card-body"><p>Trendfigyelő platform, amely AI-elemzéssel azonosítja a gyorsan felívelő témákat — a kutatási téma aktualitásának ellenőrzésére.</p><a class="tool-link" href="https://explodingtopics.com" target="_blank" rel="noopener">Megnyitás &#8599;</a></div>
           </details>
-          <details class="tool-card">
+          <details class="tool-card" data-price="mixed">
             <summary><span class="tool-name">Miro AI Mind Map</span><span class="price-badge price-mixed">Freemium</span></summary>
             <div class="tool-card-body"><p>AI-alapú gondolattérkép-generátor: egy megadott témából automatikusan elágazó altémákat vázol fel, hasznos a brainstorming fázisban.</p><a class="tool-link" href="https://miro.com/mind-map/" target="_blank" rel="noopener">Megnyitás &#8599;</a></div>
           </details>
-          <details class="tool-card">
+          <details class="tool-card" data-price="mixed">
             <summary><span class="tool-name">Perplexity (Research mód)</span><span class="price-badge price-mixed">Freemium</span></summary>
             <div class="tool-card-body"><p>Dedikált „Research” módja a széles érdeklődési terület feltárásához, aktuális trendek és háttérkontextus gyors összegyűjtéséhez.</p><a class="tool-link" href="https://www.perplexity.ai" target="_blank" rel="noopener">Megnyitás &#8599;</a></div>
           </details>
-          <details class="tool-card">
+          <details class="tool-card" data-price="mixed">
             <summary><span class="tool-name">ChatGPT</span><span class="price-badge price-mixed">Freemium</span></summary>
             <div class="tool-card-body"><p>Konverzációs MI, amely a kapott input alapján emberhez hasonló szöveget generál; jó kiindulópont a témaszűkítő beszélgetéshez.</p><a class="tool-link" href="https://chatgpt.com/" target="_blank" rel="noopener">Megnyitás &#8599;</a></div>
           </details>
-          <details class="tool-card">
+          <details class="tool-card" data-price="mixed">
             <summary><span class="tool-name">Claude</span><span class="price-badge price-mixed">Freemium</span></summary>
             <div class="tool-card-body"><p>Az Anthropic által kifejlesztett társalgási mesterséges intelligencia, kutatási ötletelésre és szövegértésre is használható.</p><a class="tool-link" href="https://claude.ai" target="_blank" rel="noopener">Megnyitás &#8599;</a></div>
           </details>
-          <details class="tool-card">
+          <details class="tool-card" data-price="mixed">
             <summary><span class="tool-name">Gemini</span><span class="price-badge price-mixed">Freemium</span></summary>
             <div class="tool-card-body"><p>A Google által kifejlesztett társalgási mesterséges intelligencia, téma- és kutatásirány-ötleteléshez is használható.</p><a class="tool-link" href="https://gemini.google.com/app" target="_blank" rel="noopener">Megnyitás &#8599;</a></div>
           </details>
-          <details class="tool-card">
+          <details class="tool-card" data-price="free">
             <summary><span class="tool-name">Hugging Chat</span><span class="price-badge price-free">Ingyenes</span></summary>
             <div class="tool-card-body"><p>A Hugging Face nyílt forráskódú beszélgető AI-ja, több nyílt LLM közül választva.</p><a class="tool-link" href="https://huggingface.co/chat/" target="_blank" rel="noopener">Megnyitás &#8599;</a></div>
           </details>
-          <details class="tool-card">
+          <details class="tool-card" data-price="free">
             <summary><span class="tool-name">Llama</span><span class="price-badge price-free">Ingyenes</span></summary>
             <div class="tool-card-body"><p>A Meta által fejlesztett nyílt társalgási MI-modellcsalád, helyben is futtatható kutatási célokra.</p><a class="tool-link" href="https://www.llama.com/" target="_blank" rel="noopener">Megnyitás &#8599;</a></div>
           </details>
-          <details class="tool-card">
+          <details class="tool-card" data-price="free">
             <summary><span class="tool-name">Microsoft Copilot (Corvinus biztonságos verzió)</span><span class="price-badge price-free">Ingyenes (intézményi)</span></summary>
             <div class="tool-card-body"><p>Microsoft termékekbe integrált MI-asszisztens; Edge böngészőből intézményi hitelesítéssel biztonságos, dokumentumfeltöltésre is alkalmas LLM-környezet.</p><a class="tool-link" href="https://copilot.microsoft.com" target="_blank" rel="noopener">Megnyitás &#8599;</a></div>
           </details>
-          <details class="tool-card">
+          <details class="tool-card" data-price="mixed">
             <summary><span class="tool-name">Genspark</span><span class="price-badge price-mixed">Freemium</span></summary>
             <div class="tool-card-body"><p>Valós idejű internetkapcsolattal rendelkező RAG-eszköz, amely több MI-ügynököt (Claude, Gemini, GPT-4o) futtat párhuzamosan egy témán; hasznos korai kutatási ötleteléshez vagy pályázati témák feltárásához.</p><a class="tool-link" href="https://www.genspark.ai/" target="_blank" rel="noopener">Megnyitás &#8599;</a></div>
           </details>
@@ -1320,136 +1326,136 @@ nem szerepel benne, írd: "Nem tudom a forrás alapján."</pre>
         <div class="scroll"><table>
           <thead><tr><th>Eszköz</th><th>Rövid leírás</th><th>Ár</th><th>Link</th></tr></thead>
           <tbody>
-            <tr><td class="name">Consensus</td><td>AI-alapú keresőmotor, amely a lektorált kutatásokból kinyert kulcsállításokkal ad bizonyítékalapú válaszokat. Reklámmentes.</td><td>Freemium</td><td><a href="https://consensus.app" target="_blank" rel="noopener">consensus.app</a></td></tr>
-            <tr><td class="name">Elicit</td><td>Kutatási asszisztens: nyelvi modellekkel talál releváns cikkeket pontos kulcsszóegyezés nélkül is, összefoglal, adatot nyer ki, és hivatkozáskezelőkkel is együttműködik.</td><td>Ingyenes</td><td><a href="https://elicit.org" target="_blank" rel="noopener">elicit.org</a></td></tr>
-            <tr><td class="name">Inciteful</td><td>Ingyenes, nyílt forráskódú eszköz, amely hivatkozások alapján tárja fel az irodalmat. Interdiszciplináris „literature connector” funkció, Zotero-támogatás.</td><td>Ingyenes</td><td><a href="https://inciteful.xyz" target="_blank" rel="noopener">inciteful.xyz</a></td></tr>
-            <tr><td class="name">Laser AI</td><td>Szisztematikus (különösen „living”) áttekintésekhez készült. Félautomata adatkinyerő modulja átlagosan 50% időt ígér megtakarítani.</td><td>Fizetős</td><td><a href="https://laser.ai" target="_blank" rel="noopener">laser.ai</a></td></tr>
-            <tr><td class="name">Litmaps</td><td>A releváns cikkekről vizuális térképet készít a hivatkozási minták elemzésével. Segít a figyelmen kívül maradt cikkek megtalálásában, értesít új publikációkról.</td><td>Freemium</td><td><a href="https://app.litmaps.co" target="_blank" rel="noopener">app.litmaps.co</a></td></tr>
-            <tr><td class="name">Research Rabbit</td><td>Irodalomkereső és -kezelő platform személyre szabott ajánlásokkal, interaktív vizualizációval. Hivatkozáskezelőkkel integrálható, kutatóknak ingyenes.</td><td>Ingyenes</td><td><a href="https://www.researchrabbit.ai" target="_blank" rel="noopener">www.researchrabbit.ai</a></td></tr>
-            <tr><td class="name">System Pro</td><td>Elsősorban az egészség- és élettudományokra fókuszál. LLM-eket strukturált adatokkal kombinálva ad naprakész áttekintést átlátható hivatkozásokkal.</td><td>Fizetős</td><td><a href="https://www.system.com" target="_blank" rel="noopener">www.system.com</a></td></tr>
-            <tr><td class="name">Scite</td><td>Kutatási asszisztens, amely cikkek millióiból ad válaszokat kérdésekre. Megtalálja az ellentétes bizonyítékot, összefoglal, forrást keres konkrét állításokhoz.</td><td>Freemium</td><td><a href="https://scite.ai" target="_blank" rel="noopener">scite.ai</a></td></tr>
-            <tr><td class="name">Semantic Scholar</td><td>Ingyenes AI-alapú kutatóeszköz nagy tudományos adatbázissal. A Semantic Reader kiegészített olvasó, amely kontextust ad a cikkekhez.</td><td>Ingyenes</td><td><a href="https://www.semanticscholar.org" target="_blank" rel="noopener">www.semanticscholar.org</a></td></tr>
-            <tr><td class="name">Chat PDF</td><td>Beszélgetős felület: kérdéseket lehet feltenni egy PDF-ről, és valós időben jön a válasz.</td><td>Freemium</td><td><a href="https://www.chatpdf.com" target="_blank" rel="noopener">www.chatpdf.com</a></td></tr>
-            <tr><td class="name">Explain Paper</td><td>Feltöltött cikkben bármelyik kijelölt szöveghez magyarázatot ad, és tömör összefoglalókat készít.</td><td>Freemium</td><td><a href="https://www.explainpaper.com" target="_blank" rel="noopener">www.explainpaper.com</a></td></tr>
-            <tr><td class="name">Lateral AI</td><td>Szöveges keresés, a találatok rendszerezése, megosztás és dokumentumnézet; a kutatás szervezettebbé tételét célozza.</td><td>Freemium</td><td><a href="https://www.lateral.io" target="_blank" rel="noopener">www.lateral.io</a></td></tr>
-            <tr><td class="name">Open Read</td><td>Rövid összefoglalókkal és interaktív cikkekkel támogatja a lektorált publikációk olvasását. Korai fázisban van, lefedettsége korlátozott lehet.</td><td>Freemium</td><td><a href="https://www.openread.academy" target="_blank" rel="noopener">www.openread.academy</a></td></tr>
-            <tr><td class="name">Scholarcy</td><td>Összefoglalja a tudományos tartalmat, strukturált adatot nyer ki, és összefoglaló kártyákat (flashcard) készít Word/PDF formátumban. Böngészőbővítmény is van.</td><td>Freemium</td><td><a href="https://www.scholarcy.com" target="_blank" rel="noopener">www.scholarcy.com</a></td></tr>
-            <tr><td class="name">SciSpace Copilot</td><td>Végponttól végpontig tartó kutatási munkatér, amely automatizálja az ismétlődő feladatokat. 200M+ cikk metaadata, 50M+ nyílt hozzáférésű PDF.</td><td>Freemium</td><td><a href="https://typeset.io" target="_blank" rel="noopener">typeset.io</a></td></tr>
-            <tr><td class="name">Anara (korábban Unriddle)</td><td>Összetett témákat egyszerűsít, összefoglal, kérdésekre válaszol. Bármely dokumentumból saját AI építhető (GPT-4 alapú, kb. 500 000 szót kezel).</td><td>Freemium</td><td><a href="https://anara.com" target="_blank" rel="noopener">anara.com</a></td></tr>
-            <tr><td class="name">Connected Papers</td><td>Segít a kutatóknak megtalálni és felfedezni a munkájuk szempontjából releváns dokumentumokat vizuális kapcsolati gráf alapján.</td><td>Freemium</td><td><a href="https://www.connectedpapers.com/" target="_blank" rel="noopener">www.connectedpapers.com</a></td></tr>
-            <tr><td class="name">Dimensions (app.dimensions.ai)</td><td>Kutatási dokumentumok és konkrét támogatások (Pro verzióban) keresése, finanszírozó intézmények azonosítása; ChatGPT-integrációval. (Lásd még: Dimensions Research Strategy a Téma-lépésnél — ugyanazon cégcsalád másik moduljáé.)</td><td>Freemium</td><td><a href="https://app.dimensions.ai/" target="_blank" rel="noopener">app.dimensions.ai</a></td></tr>
-            <tr><td class="name">Undermind</td><td>Személyre szabott, mélyreható keresést végez a tudományos szakirodalomban a kutatási téma releváns forrásainak azonosítására.</td><td>Freemium</td><td><a href="https://www.undermind.ai" target="_blank" rel="noopener">www.undermind.ai</a></td></tr>
-            <tr><td class="name">Scopus AI</td><td>Segít eligazodni az Elsevier Scopus kutatási adatbázisában, AI-összefoglalókkal és témafeltérképezéssel.</td><td>Fizetős (intézményi)</td><td><a href="https://elsevier.libguides.com/Scopus/ScopusAI" target="_blank" rel="noopener">elsevier.libguides.com/Scopus/ScopusAI</a></td></tr>
-            <tr><td class="name">Statista AI</td><td>A Statista.com kutatási/statisztikai adatbázisában lévő adathalmazokban való navigálást segíti AI-val.</td><td>Fizetős (intézményi)</td><td><a href="https://www.statista.com/research-ai/" target="_blank" rel="noopener">www.statista.com/research-ai</a></td></tr>
-            <tr><td class="name">Harvey</td><td>Természetes nyelvi feldolgozó jogi kutatási AI ügyvédi irodák és szakmai szolgáltatók számára. Niche: elsősorban jogtudományi/jogi szakirodalomhoz hasznos.</td><td>Fizetős</td><td><a href="https://www.harvey.ai/" target="_blank" rel="noopener">www.harvey.ai</a></td></tr>
-            <tr><td class="name">AskYourPDF</td><td>Lehetővé teszi, hogy kérdéseket tegyünk fel PDF-dokumentumok tartalmával kapcsolatban.</td><td>Freemium</td><td><a href="https://askyourpdf.com/" target="_blank" rel="noopener">askyourpdf.com</a></td></tr>
-            <tr><td class="name">Docalysis</td><td>Felhasználói lekérdezések alapján elemzést és betekintést nyújt a feltöltött dokumentumokból.</td><td>Freemium</td><td><a href="https://docalysis.com/" target="_blank" rel="noopener">docalysis.com</a></td></tr>
-            <tr><td class="name">DocAnalyzer</td><td>Több dokumentum feltöltését teszi lehetővé különböző formátumokban (PDF, DOCX, MD, ODT, HTML, EPUB, RTF, TXT), chat-alapú interakcióval.</td><td>Freemium</td><td><a href="https://docanalyzer.ai/" target="_blank" rel="noopener">docanalyzer.ai</a></td></tr>
-            <tr><td class="name">NotebookLM</td><td>Google jegyzetelő/szintetizáló AI-eszköz: a feltöltött forrásokra (cikkek, jegyzetek) alapozva segít a szakirodalom szervezésében, összefoglalásában és kérdés-válaszban, forráshivatkozással.</td><td>Ingyenes</td><td><a href="https://notebooklm.google/" target="_blank" rel="noopener">notebooklm.google</a></td></tr>
+            <tr data-price="mixed"><td class="name">Consensus</td><td>AI-alapú keresőmotor, amely a lektorált kutatásokból kinyert kulcsállításokkal ad bizonyítékalapú válaszokat. Reklámmentes.</td><td>Freemium</td><td><a href="https://consensus.app" target="_blank" rel="noopener">consensus.app</a></td></tr>
+            <tr data-price="free"><td class="name">Elicit</td><td>Kutatási asszisztens: nyelvi modellekkel talál releváns cikkeket pontos kulcsszóegyezés nélkül is, összefoglal, adatot nyer ki, és hivatkozáskezelőkkel is együttműködik.</td><td>Ingyenes</td><td><a href="https://elicit.org" target="_blank" rel="noopener">elicit.org</a></td></tr>
+            <tr data-price="free"><td class="name">Inciteful</td><td>Ingyenes, nyílt forráskódú eszköz, amely hivatkozások alapján tárja fel az irodalmat. Interdiszciplináris „literature connector” funkció, Zotero-támogatás.</td><td>Ingyenes</td><td><a href="https://inciteful.xyz" target="_blank" rel="noopener">inciteful.xyz</a></td></tr>
+            <tr data-price="paid"><td class="name">Laser AI</td><td>Szisztematikus (különösen „living”) áttekintésekhez készült. Félautomata adatkinyerő modulja átlagosan 50% időt ígér megtakarítani.</td><td>Fizetős</td><td><a href="https://laser.ai" target="_blank" rel="noopener">laser.ai</a></td></tr>
+            <tr data-price="mixed"><td class="name">Litmaps</td><td>A releváns cikkekről vizuális térképet készít a hivatkozási minták elemzésével. Segít a figyelmen kívül maradt cikkek megtalálásában, értesít új publikációkról.</td><td>Freemium</td><td><a href="https://app.litmaps.co" target="_blank" rel="noopener">app.litmaps.co</a></td></tr>
+            <tr data-price="free"><td class="name">Research Rabbit</td><td>Irodalomkereső és -kezelő platform személyre szabott ajánlásokkal, interaktív vizualizációval. Hivatkozáskezelőkkel integrálható, kutatóknak ingyenes.</td><td>Ingyenes</td><td><a href="https://www.researchrabbit.ai" target="_blank" rel="noopener">www.researchrabbit.ai</a></td></tr>
+            <tr data-price="paid"><td class="name">System Pro</td><td>Elsősorban az egészség- és élettudományokra fókuszál. LLM-eket strukturált adatokkal kombinálva ad naprakész áttekintést átlátható hivatkozásokkal.</td><td>Fizetős</td><td><a href="https://www.system.com" target="_blank" rel="noopener">www.system.com</a></td></tr>
+            <tr data-price="mixed"><td class="name">Scite</td><td>Kutatási asszisztens, amely cikkek millióiból ad válaszokat kérdésekre. Megtalálja az ellentétes bizonyítékot, összefoglal, forrást keres konkrét állításokhoz.</td><td>Freemium</td><td><a href="https://scite.ai" target="_blank" rel="noopener">scite.ai</a></td></tr>
+            <tr data-price="free"><td class="name">Semantic Scholar</td><td>Ingyenes AI-alapú kutatóeszköz nagy tudományos adatbázissal. A Semantic Reader kiegészített olvasó, amely kontextust ad a cikkekhez.</td><td>Ingyenes</td><td><a href="https://www.semanticscholar.org" target="_blank" rel="noopener">www.semanticscholar.org</a></td></tr>
+            <tr data-price="mixed"><td class="name">Chat PDF</td><td>Beszélgetős felület: kérdéseket lehet feltenni egy PDF-ről, és valós időben jön a válasz.</td><td>Freemium</td><td><a href="https://www.chatpdf.com" target="_blank" rel="noopener">www.chatpdf.com</a></td></tr>
+            <tr data-price="mixed"><td class="name">Explain Paper</td><td>Feltöltött cikkben bármelyik kijelölt szöveghez magyarázatot ad, és tömör összefoglalókat készít.</td><td>Freemium</td><td><a href="https://www.explainpaper.com" target="_blank" rel="noopener">www.explainpaper.com</a></td></tr>
+            <tr data-price="mixed"><td class="name">Lateral AI</td><td>Szöveges keresés, a találatok rendszerezése, megosztás és dokumentumnézet; a kutatás szervezettebbé tételét célozza.</td><td>Freemium</td><td><a href="https://www.lateral.io" target="_blank" rel="noopener">www.lateral.io</a></td></tr>
+            <tr data-price="mixed"><td class="name">Open Read</td><td>Rövid összefoglalókkal és interaktív cikkekkel támogatja a lektorált publikációk olvasását. Korai fázisban van, lefedettsége korlátozott lehet.</td><td>Freemium</td><td><a href="https://www.openread.academy" target="_blank" rel="noopener">www.openread.academy</a></td></tr>
+            <tr data-price="mixed"><td class="name">Scholarcy</td><td>Összefoglalja a tudományos tartalmat, strukturált adatot nyer ki, és összefoglaló kártyákat (flashcard) készít Word/PDF formátumban. Böngészőbővítmény is van.</td><td>Freemium</td><td><a href="https://www.scholarcy.com" target="_blank" rel="noopener">www.scholarcy.com</a></td></tr>
+            <tr data-price="mixed"><td class="name">SciSpace Copilot</td><td>Végponttól végpontig tartó kutatási munkatér, amely automatizálja az ismétlődő feladatokat. 200M+ cikk metaadata, 50M+ nyílt hozzáférésű PDF.</td><td>Freemium</td><td><a href="https://typeset.io" target="_blank" rel="noopener">typeset.io</a></td></tr>
+            <tr data-price="mixed"><td class="name">Anara (korábban Unriddle)</td><td>Összetett témákat egyszerűsít, összefoglal, kérdésekre válaszol. Bármely dokumentumból saját AI építhető (GPT-4 alapú, kb. 500 000 szót kezel).</td><td>Freemium</td><td><a href="https://anara.com" target="_blank" rel="noopener">anara.com</a></td></tr>
+            <tr data-price="mixed"><td class="name">Connected Papers</td><td>Segít a kutatóknak megtalálni és felfedezni a munkájuk szempontjából releváns dokumentumokat vizuális kapcsolati gráf alapján.</td><td>Freemium</td><td><a href="https://www.connectedpapers.com/" target="_blank" rel="noopener">www.connectedpapers.com</a></td></tr>
+            <tr data-price="mixed"><td class="name">Dimensions (app.dimensions.ai)</td><td>Kutatási dokumentumok és konkrét támogatások (Pro verzióban) keresése, finanszírozó intézmények azonosítása; ChatGPT-integrációval. (Lásd még: Dimensions Research Strategy a Téma-lépésnél — ugyanazon cégcsalád másik moduljáé.)</td><td>Freemium</td><td><a href="https://app.dimensions.ai/" target="_blank" rel="noopener">app.dimensions.ai</a></td></tr>
+            <tr data-price="mixed"><td class="name">Undermind</td><td>Személyre szabott, mélyreható keresést végez a tudományos szakirodalomban a kutatási téma releváns forrásainak azonosítására.</td><td>Freemium</td><td><a href="https://www.undermind.ai" target="_blank" rel="noopener">www.undermind.ai</a></td></tr>
+            <tr data-price="paid"><td class="name">Scopus AI</td><td>Segít eligazodni az Elsevier Scopus kutatási adatbázisában, AI-összefoglalókkal és témafeltérképezéssel.</td><td>Fizetős (intézményi)</td><td><a href="https://elsevier.libguides.com/Scopus/ScopusAI" target="_blank" rel="noopener">elsevier.libguides.com/Scopus/ScopusAI</a></td></tr>
+            <tr data-price="paid"><td class="name">Statista AI</td><td>A Statista.com kutatási/statisztikai adatbázisában lévő adathalmazokban való navigálást segíti AI-val.</td><td>Fizetős (intézményi)</td><td><a href="https://www.statista.com/research-ai/" target="_blank" rel="noopener">www.statista.com/research-ai</a></td></tr>
+            <tr data-price="paid"><td class="name">Harvey</td><td>Természetes nyelvi feldolgozó jogi kutatási AI ügyvédi irodák és szakmai szolgáltatók számára. Niche: elsősorban jogtudományi/jogi szakirodalomhoz hasznos.</td><td>Fizetős</td><td><a href="https://www.harvey.ai/" target="_blank" rel="noopener">www.harvey.ai</a></td></tr>
+            <tr data-price="mixed"><td class="name">AskYourPDF</td><td>Lehetővé teszi, hogy kérdéseket tegyünk fel PDF-dokumentumok tartalmával kapcsolatban.</td><td>Freemium</td><td><a href="https://askyourpdf.com/" target="_blank" rel="noopener">askyourpdf.com</a></td></tr>
+            <tr data-price="mixed"><td class="name">Docalysis</td><td>Felhasználói lekérdezések alapján elemzést és betekintést nyújt a feltöltött dokumentumokból.</td><td>Freemium</td><td><a href="https://docalysis.com/" target="_blank" rel="noopener">docalysis.com</a></td></tr>
+            <tr data-price="mixed"><td class="name">DocAnalyzer</td><td>Több dokumentum feltöltését teszi lehetővé különböző formátumokban (PDF, DOCX, MD, ODT, HTML, EPUB, RTF, TXT), chat-alapú interakcióval.</td><td>Freemium</td><td><a href="https://docanalyzer.ai/" target="_blank" rel="noopener">docanalyzer.ai</a></td></tr>
+            <tr data-price="free"><td class="name">NotebookLM</td><td>Google jegyzetelő/szintetizáló AI-eszköz: a feltöltött forrásokra (cikkek, jegyzetek) alapozva segít a szakirodalom szervezésében, összefoglalásában és kérdés-válaszban, forráshivatkozással.</td><td>Ingyenes</td><td><a href="https://notebooklm.google/" target="_blank" rel="noopener">notebooklm.google</a></td></tr>
           </tbody>
         </table></div>
         <div class="tool-cards">
-          <details class="tool-card">
+          <details class="tool-card" data-price="mixed">
             <summary><span class="tool-name">Consensus</span><span class="price-badge price-mixed">Freemium</span></summary>
             <div class="tool-card-body"><p>AI-alapú keresőmotor, amely a lektorált kutatásokból kinyert kulcsállításokkal ad bizonyítékalapú válaszokat. Reklámmentes.</p><a class="tool-link" href="https://consensus.app" target="_blank" rel="noopener">Megnyitás &#8599;</a></div>
           </details>
-          <details class="tool-card">
+          <details class="tool-card" data-price="free">
             <summary><span class="tool-name">Elicit</span><span class="price-badge price-free">Ingyenes</span></summary>
             <div class="tool-card-body"><p>Kutatási asszisztens: nyelvi modellekkel talál releváns cikkeket pontos kulcsszóegyezés nélkül is, összefoglal, adatot nyer ki, és hivatkozáskezelőkkel is együttműködik.</p><a class="tool-link" href="https://elicit.org" target="_blank" rel="noopener">Megnyitás &#8599;</a></div>
           </details>
-          <details class="tool-card">
+          <details class="tool-card" data-price="free">
             <summary><span class="tool-name">Inciteful</span><span class="price-badge price-free">Ingyenes</span></summary>
             <div class="tool-card-body"><p>Ingyenes, nyílt forráskódú eszköz, amely hivatkozások alapján tárja fel az irodalmat. Interdiszciplináris „literature connector” funkció, Zotero-támogatás.</p><a class="tool-link" href="https://inciteful.xyz" target="_blank" rel="noopener">Megnyitás &#8599;</a></div>
           </details>
-          <details class="tool-card">
+          <details class="tool-card" data-price="paid">
             <summary><span class="tool-name">Laser AI</span><span class="price-badge price-paid">Fizetős</span></summary>
             <div class="tool-card-body"><p>Szisztematikus (különösen „living”) áttekintésekhez készült. Félautomata adatkinyerő modulja átlagosan 50% időt ígér megtakarítani.</p><a class="tool-link" href="https://laser.ai" target="_blank" rel="noopener">Megnyitás &#8599;</a></div>
           </details>
-          <details class="tool-card">
+          <details class="tool-card" data-price="mixed">
             <summary><span class="tool-name">Litmaps</span><span class="price-badge price-mixed">Freemium</span></summary>
             <div class="tool-card-body"><p>A releváns cikkekről vizuális térképet készít a hivatkozási minták elemzésével. Segít a figyelmen kívül maradt cikkek megtalálásában, értesít új publikációkról.</p><a class="tool-link" href="https://app.litmaps.co" target="_blank" rel="noopener">Megnyitás &#8599;</a></div>
           </details>
-          <details class="tool-card">
+          <details class="tool-card" data-price="free">
             <summary><span class="tool-name">Research Rabbit</span><span class="price-badge price-free">Ingyenes</span></summary>
             <div class="tool-card-body"><p>Irodalomkereső és -kezelő platform személyre szabott ajánlásokkal, interaktív vizualizációval. Hivatkozáskezelőkkel integrálható, kutatóknak ingyenes.</p><a class="tool-link" href="https://www.researchrabbit.ai" target="_blank" rel="noopener">Megnyitás &#8599;</a></div>
           </details>
-          <details class="tool-card">
+          <details class="tool-card" data-price="paid">
             <summary><span class="tool-name">System Pro</span><span class="price-badge price-paid">Fizetős</span></summary>
             <div class="tool-card-body"><p>Elsősorban az egészség- és élettudományokra fókuszál. LLM-eket strukturált adatokkal kombinálva ad naprakész áttekintést átlátható hivatkozásokkal.</p><a class="tool-link" href="https://www.system.com" target="_blank" rel="noopener">Megnyitás &#8599;</a></div>
           </details>
-          <details class="tool-card">
+          <details class="tool-card" data-price="mixed">
             <summary><span class="tool-name">Scite</span><span class="price-badge price-mixed">Freemium</span></summary>
             <div class="tool-card-body"><p>Kutatási asszisztens, amely cikkek millióiból ad válaszokat kérdésekre. Megtalálja az ellentétes bizonyítékot, összefoglal, forrást keres konkrét állításokhoz.</p><a class="tool-link" href="https://scite.ai" target="_blank" rel="noopener">Megnyitás &#8599;</a></div>
           </details>
-          <details class="tool-card">
+          <details class="tool-card" data-price="free">
             <summary><span class="tool-name">Semantic Scholar</span><span class="price-badge price-free">Ingyenes</span></summary>
             <div class="tool-card-body"><p>Ingyenes AI-alapú kutatóeszköz nagy tudományos adatbázissal. A Semantic Reader kiegészített olvasó, amely kontextust ad a cikkekhez.</p><a class="tool-link" href="https://www.semanticscholar.org" target="_blank" rel="noopener">Megnyitás &#8599;</a></div>
           </details>
-          <details class="tool-card">
+          <details class="tool-card" data-price="mixed">
             <summary><span class="tool-name">Chat PDF</span><span class="price-badge price-mixed">Freemium</span></summary>
             <div class="tool-card-body"><p>Beszélgetős felület: kérdéseket lehet feltenni egy PDF-ről, és valós időben jön a válasz.</p><a class="tool-link" href="https://www.chatpdf.com" target="_blank" rel="noopener">Megnyitás &#8599;</a></div>
           </details>
-          <details class="tool-card">
+          <details class="tool-card" data-price="mixed">
             <summary><span class="tool-name">Explain Paper</span><span class="price-badge price-mixed">Freemium</span></summary>
             <div class="tool-card-body"><p>Feltöltött cikkben bármelyik kijelölt szöveghez magyarázatot ad, és tömör összefoglalókat készít.</p><a class="tool-link" href="https://www.explainpaper.com" target="_blank" rel="noopener">Megnyitás &#8599;</a></div>
           </details>
-          <details class="tool-card">
+          <details class="tool-card" data-price="mixed">
             <summary><span class="tool-name">Lateral AI</span><span class="price-badge price-mixed">Freemium</span></summary>
             <div class="tool-card-body"><p>Szöveges keresés, a találatok rendszerezése, megosztás és dokumentumnézet; a kutatás szervezettebbé tételét célozza.</p><a class="tool-link" href="https://www.lateral.io" target="_blank" rel="noopener">Megnyitás &#8599;</a></div>
           </details>
-          <details class="tool-card">
+          <details class="tool-card" data-price="mixed">
             <summary><span class="tool-name">Open Read</span><span class="price-badge price-mixed">Freemium</span></summary>
             <div class="tool-card-body"><p>Rövid összefoglalókkal és interaktív cikkekkel támogatja a lektorált publikációk olvasását. Korai fázisban van, lefedettsége korlátozott lehet.</p><a class="tool-link" href="https://www.openread.academy" target="_blank" rel="noopener">Megnyitás &#8599;</a></div>
           </details>
-          <details class="tool-card">
+          <details class="tool-card" data-price="mixed">
             <summary><span class="tool-name">Scholarcy</span><span class="price-badge price-mixed">Freemium</span></summary>
             <div class="tool-card-body"><p>Összefoglalja a tudományos tartalmat, strukturált adatot nyer ki, és összefoglaló kártyákat (flashcard) készít Word/PDF formátumban. Böngészőbővítmény is van.</p><a class="tool-link" href="https://www.scholarcy.com" target="_blank" rel="noopener">Megnyitás &#8599;</a></div>
           </details>
-          <details class="tool-card">
+          <details class="tool-card" data-price="mixed">
             <summary><span class="tool-name">SciSpace Copilot</span><span class="price-badge price-mixed">Freemium</span></summary>
             <div class="tool-card-body"><p>Végponttól végpontig tartó kutatási munkatér, amely automatizálja az ismétlődő feladatokat. 200M+ cikk metaadata, 50M+ nyílt hozzáférésű PDF.</p><a class="tool-link" href="https://typeset.io" target="_blank" rel="noopener">Megnyitás &#8599;</a></div>
           </details>
-          <details class="tool-card">
+          <details class="tool-card" data-price="mixed">
             <summary><span class="tool-name">Anara (korábban Unriddle)</span><span class="price-badge price-mixed">Freemium</span></summary>
             <div class="tool-card-body"><p>Összetett témákat egyszerűsít, összefoglal, kérdésekre válaszol. Bármely dokumentumból saját AI építhető (GPT-4 alapú, kb. 500 000 szót kezel).</p><a class="tool-link" href="https://anara.com" target="_blank" rel="noopener">Megnyitás &#8599;</a></div>
           </details>
-          <details class="tool-card">
+          <details class="tool-card" data-price="mixed">
             <summary><span class="tool-name">Connected Papers</span><span class="price-badge price-mixed">Freemium</span></summary>
             <div class="tool-card-body"><p>Segít a kutatóknak megtalálni és felfedezni a munkájuk szempontjából releváns dokumentumokat vizuális kapcsolati gráf alapján.</p><a class="tool-link" href="https://www.connectedpapers.com/" target="_blank" rel="noopener">Megnyitás &#8599;</a></div>
           </details>
-          <details class="tool-card">
+          <details class="tool-card" data-price="mixed">
             <summary><span class="tool-name">Dimensions (app.dimensions.ai)</span><span class="price-badge price-mixed">Freemium</span></summary>
             <div class="tool-card-body"><p>Kutatási dokumentumok és konkrét támogatások (Pro verzióban) keresése, finanszírozó intézmények azonosítása; ChatGPT-integrációval. (Lásd még: Dimensions Research Strategy a Téma-lépésnél — ugyanazon cégcsalád másik moduljáé.)</p><a class="tool-link" href="https://app.dimensions.ai/" target="_blank" rel="noopener">Megnyitás &#8599;</a></div>
           </details>
-          <details class="tool-card">
+          <details class="tool-card" data-price="mixed">
             <summary><span class="tool-name">Undermind</span><span class="price-badge price-mixed">Freemium</span></summary>
             <div class="tool-card-body"><p>Személyre szabott, mélyreható keresést végez a tudományos szakirodalomban a kutatási téma releváns forrásainak azonosítására.</p><a class="tool-link" href="https://www.undermind.ai" target="_blank" rel="noopener">Megnyitás &#8599;</a></div>
           </details>
-          <details class="tool-card">
+          <details class="tool-card" data-price="paid">
             <summary><span class="tool-name">Scopus AI</span><span class="price-badge price-paid">Fizetős (intézményi)</span></summary>
             <div class="tool-card-body"><p>Segít eligazodni az Elsevier Scopus kutatási adatbázisában, AI-összefoglalókkal és témafeltérképezéssel.</p><a class="tool-link" href="https://elsevier.libguides.com/Scopus/ScopusAI" target="_blank" rel="noopener">Megnyitás &#8599;</a></div>
           </details>
-          <details class="tool-card">
+          <details class="tool-card" data-price="paid">
             <summary><span class="tool-name">Statista AI</span><span class="price-badge price-paid">Fizetős (intézményi)</span></summary>
             <div class="tool-card-body"><p>A Statista.com kutatási/statisztikai adatbázisában lévő adathalmazokban való navigálást segíti AI-val.</p><a class="tool-link" href="https://www.statista.com/research-ai/" target="_blank" rel="noopener">Megnyitás &#8599;</a></div>
           </details>
-          <details class="tool-card">
+          <details class="tool-card" data-price="paid">
             <summary><span class="tool-name">Harvey</span><span class="price-badge price-paid">Fizetős</span></summary>
             <div class="tool-card-body"><p>Természetes nyelvi feldolgozó jogi kutatási AI ügyvédi irodák és szakmai szolgáltatók számára. Niche: elsősorban jogtudományi/jogi szakirodalomhoz hasznos.</p><a class="tool-link" href="https://www.harvey.ai/" target="_blank" rel="noopener">Megnyitás &#8599;</a></div>
           </details>
-          <details class="tool-card">
+          <details class="tool-card" data-price="mixed">
             <summary><span class="tool-name">AskYourPDF</span><span class="price-badge price-mixed">Freemium</span></summary>
             <div class="tool-card-body"><p>Lehetővé teszi, hogy kérdéseket tegyünk fel PDF-dokumentumok tartalmával kapcsolatban.</p><a class="tool-link" href="https://askyourpdf.com/" target="_blank" rel="noopener">Megnyitás &#8599;</a></div>
           </details>
-          <details class="tool-card">
+          <details class="tool-card" data-price="mixed">
             <summary><span class="tool-name">Docalysis</span><span class="price-badge price-mixed">Freemium</span></summary>
             <div class="tool-card-body"><p>Felhasználói lekérdezések alapján elemzést és betekintést nyújt a feltöltött dokumentumokból.</p><a class="tool-link" href="https://docalysis.com/" target="_blank" rel="noopener">Megnyitás &#8599;</a></div>
           </details>
-          <details class="tool-card">
+          <details class="tool-card" data-price="mixed">
             <summary><span class="tool-name">DocAnalyzer</span><span class="price-badge price-mixed">Freemium</span></summary>
             <div class="tool-card-body"><p>Több dokumentum feltöltését teszi lehetővé különböző formátumokban (PDF, DOCX, MD, ODT, HTML, EPUB, RTF, TXT), chat-alapú interakcióval.</p><a class="tool-link" href="https://docanalyzer.ai/" target="_blank" rel="noopener">Megnyitás &#8599;</a></div>
           </details>
-          <details class="tool-card">
+          <details class="tool-card" data-price="free">
             <summary><span class="tool-name">NotebookLM</span><span class="price-badge price-free">Ingyenes</span></summary>
             <div class="tool-card-body"><p>Google jegyzetelő/szintetizáló AI-eszköz: a feltöltött forrásokra (cikkek, jegyzetek) alapozva segít a szakirodalom szervezésében, összefoglalásában és kérdés-válaszban, forráshivatkozással.</p><a class="tool-link" href="https://notebooklm.google/" target="_blank" rel="noopener">Megnyitás &#8599;</a></div>
           </details>
@@ -1467,41 +1473,41 @@ nem szerepel benne, írd: "Nem tudom a forrás alapján."</pre>
         <div class="scroll"><table>
           <thead><tr><th>Eszköz</th><th>Rövid leírás</th><th>Ár</th><th>Link</th></tr></thead>
           <tbody>
-            <tr><td class="name">Liner — Hypothesis Generator</td><td>A kutatási kérdést néhány perc alatt tesztelhető hipotézissé alakítja, indoklással és alátámasztó szakirodalmi forrásokkal.</td><td>Freemium</td><td><a href="https://liner.com/features/research-agents/hypothesis-generator" target="_blank" rel="noopener">liner.com/features/research-agents/hypothesis-generator</a></td></tr>
-            <tr><td class="name">HyperWrite — Hypothesis Maker</td><td>A megadott kutatási kérdésből null- és alternatív hipotézist fogalmaz meg, tudományos és társadalomtudományi kutatásokhoz igazítva.</td><td>Freemium</td><td><a href="https://www.hyperwriteai.com/aitools/hypothesis-maker" target="_blank" rel="noopener">www.hyperwriteai.com/aitools/hypothesis-maker</a></td></tr>
-            <tr><td class="name">INRA.ai — PICO Question Builder</td><td>Interaktív eszköz, amely egy nyers témát/kérdést PICO-struktúrába rendez, és kulcsfogalmakat javasol.</td><td>Ingyenes</td><td><a href="https://www.inra.ai/question-builder" target="_blank" rel="noopener">www.inra.ai/question-builder</a></td></tr>
-            <tr><td class="name">Subthesis — Research Question Builder</td><td>Kutatási kérdés megfogalmazását segítő eszköz PICO és FINER kritériumok alapján, verziókövetéssel.</td><td>Ingyenes</td><td><a href="https://www.subthesis.com/tools/research-question-builder" target="_blank" rel="noopener">www.subthesis.com/tools/research-question-builder</a></td></tr>
-            <tr><td class="name">GradSummit — Research Question Validator</td><td>Regisztráció nélküli validátor, amely a kutatási kérdést a FINER kritériumok és PICO-struktúra alapján pontozza, javítási javaslatokkal.</td><td>Ingyenes</td><td><a href="https://www.gradsummit.com/tools/research-question-validator/" target="_blank" rel="noopener">www.gradsummit.com/tools/research-question-validator</a></td></tr>
-            <tr><td class="name">ChatGPT — Deep Research</td><td>A ChatGPT mélykutatási módja a hipotézis újdonságának és megválaszolhatóságának gyors ellenőrzésére.</td><td>Fizetős</td><td><a href="https://help.openai.com/en/articles/10500283-deep-research-in-chatgpt" target="_blank" rel="noopener">help.openai.com/.../deep-research-in-chatgpt</a></td></tr>
-            <tr><td class="name">Claude — Research</td><td>A Claude mélykutatási (Research) módja a hipotézis újdonságának és megválaszolhatóságának gyors ellenőrzésére.</td><td>Fizetős</td><td><a href="https://support.claude.com/en/articles/11088861-use-research-on-claude" target="_blank" rel="noopener">support.claude.com/.../use-research-on-claude</a></td></tr>
+            <tr data-price="mixed"><td class="name">Liner — Hypothesis Generator</td><td>A kutatási kérdést néhány perc alatt tesztelhető hipotézissé alakítja, indoklással és alátámasztó szakirodalmi forrásokkal.</td><td>Freemium</td><td><a href="https://liner.com/features/research-agents/hypothesis-generator" target="_blank" rel="noopener">liner.com/features/research-agents/hypothesis-generator</a></td></tr>
+            <tr data-price="mixed"><td class="name">HyperWrite — Hypothesis Maker</td><td>A megadott kutatási kérdésből null- és alternatív hipotézist fogalmaz meg, tudományos és társadalomtudományi kutatásokhoz igazítva.</td><td>Freemium</td><td><a href="https://www.hyperwriteai.com/aitools/hypothesis-maker" target="_blank" rel="noopener">www.hyperwriteai.com/aitools/hypothesis-maker</a></td></tr>
+            <tr data-price="free"><td class="name">INRA.ai — PICO Question Builder</td><td>Interaktív eszköz, amely egy nyers témát/kérdést PICO-struktúrába rendez, és kulcsfogalmakat javasol.</td><td>Ingyenes</td><td><a href="https://www.inra.ai/question-builder" target="_blank" rel="noopener">www.inra.ai/question-builder</a></td></tr>
+            <tr data-price="free"><td class="name">Subthesis — Research Question Builder</td><td>Kutatási kérdés megfogalmazását segítő eszköz PICO és FINER kritériumok alapján, verziókövetéssel.</td><td>Ingyenes</td><td><a href="https://www.subthesis.com/tools/research-question-builder" target="_blank" rel="noopener">www.subthesis.com/tools/research-question-builder</a></td></tr>
+            <tr data-price="free"><td class="name">GradSummit — Research Question Validator</td><td>Regisztráció nélküli validátor, amely a kutatási kérdést a FINER kritériumok és PICO-struktúra alapján pontozza, javítási javaslatokkal.</td><td>Ingyenes</td><td><a href="https://www.gradsummit.com/tools/research-question-validator/" target="_blank" rel="noopener">www.gradsummit.com/tools/research-question-validator</a></td></tr>
+            <tr data-price="paid"><td class="name">ChatGPT — Deep Research</td><td>A ChatGPT mélykutatási módja a hipotézis újdonságának és megválaszolhatóságának gyors ellenőrzésére.</td><td>Fizetős</td><td><a href="https://help.openai.com/en/articles/10500283-deep-research-in-chatgpt" target="_blank" rel="noopener">help.openai.com/.../deep-research-in-chatgpt</a></td></tr>
+            <tr data-price="paid"><td class="name">Claude — Research</td><td>A Claude mélykutatási (Research) módja a hipotézis újdonságának és megválaszolhatóságának gyors ellenőrzésére.</td><td>Fizetős</td><td><a href="https://support.claude.com/en/articles/11088861-use-research-on-claude" target="_blank" rel="noopener">support.claude.com/.../use-research-on-claude</a></td></tr>
           </tbody>
         </table></div>
         <div class="tool-cards">
-          <details class="tool-card">
+          <details class="tool-card" data-price="mixed">
             <summary><span class="tool-name">Liner — Hypothesis Generator</span><span class="price-badge price-mixed">Freemium</span></summary>
             <div class="tool-card-body"><p>A kutatási kérdést néhány perc alatt tesztelhető hipotézissé alakítja, indoklással és alátámasztó szakirodalmi forrásokkal.</p><a class="tool-link" href="https://liner.com/features/research-agents/hypothesis-generator" target="_blank" rel="noopener">Megnyitás &#8599;</a></div>
           </details>
-          <details class="tool-card">
+          <details class="tool-card" data-price="mixed">
             <summary><span class="tool-name">HyperWrite — Hypothesis Maker</span><span class="price-badge price-mixed">Freemium</span></summary>
             <div class="tool-card-body"><p>A megadott kutatási kérdésből null- és alternatív hipotézist fogalmaz meg, tudományos és társadalomtudományi kutatásokhoz igazítva.</p><a class="tool-link" href="https://www.hyperwriteai.com/aitools/hypothesis-maker" target="_blank" rel="noopener">Megnyitás &#8599;</a></div>
           </details>
-          <details class="tool-card">
+          <details class="tool-card" data-price="free">
             <summary><span class="tool-name">INRA.ai — PICO Question Builder</span><span class="price-badge price-free">Ingyenes</span></summary>
             <div class="tool-card-body"><p>Interaktív eszköz, amely egy nyers témát/kérdést PICO-struktúrába rendez, és kulcsfogalmakat javasol.</p><a class="tool-link" href="https://www.inra.ai/question-builder" target="_blank" rel="noopener">Megnyitás &#8599;</a></div>
           </details>
-          <details class="tool-card">
+          <details class="tool-card" data-price="free">
             <summary><span class="tool-name">Subthesis — Research Question Builder</span><span class="price-badge price-free">Ingyenes</span></summary>
             <div class="tool-card-body"><p>Kutatási kérdés megfogalmazását segítő eszköz PICO és FINER kritériumok alapján, verziókövetéssel.</p><a class="tool-link" href="https://www.subthesis.com/tools/research-question-builder" target="_blank" rel="noopener">Megnyitás &#8599;</a></div>
           </details>
-          <details class="tool-card">
+          <details class="tool-card" data-price="free">
             <summary><span class="tool-name">GradSummit — Research Question Validator</span><span class="price-badge price-free">Ingyenes</span></summary>
             <div class="tool-card-body"><p>Regisztráció nélküli validátor, amely a kutatási kérdést a FINER kritériumok és PICO-struktúra alapján pontozza, javítási javaslatokkal.</p><a class="tool-link" href="https://www.gradsummit.com/tools/research-question-validator/" target="_blank" rel="noopener">Megnyitás &#8599;</a></div>
           </details>
-          <details class="tool-card">
+          <details class="tool-card" data-price="paid">
             <summary><span class="tool-name">ChatGPT — Deep Research</span><span class="price-badge price-paid">Fizetős</span></summary>
             <div class="tool-card-body"><p>A ChatGPT mélykutatási módja a hipotézis újdonságának és megválaszolhatóságának gyors ellenőrzésére.</p><a class="tool-link" href="https://help.openai.com/en/articles/10500283-deep-research-in-chatgpt" target="_blank" rel="noopener">Megnyitás &#8599;</a></div>
           </details>
-          <details class="tool-card">
+          <details class="tool-card" data-price="paid">
             <summary><span class="tool-name">Claude — Research</span><span class="price-badge price-paid">Fizetős</span></summary>
             <div class="tool-card-body"><p>A Claude mélykutatási (Research) módja a hipotézis újdonságának és megválaszolhatóságának gyors ellenőrzésére.</p><a class="tool-link" href="https://support.claude.com/en/articles/11088861-use-research-on-claude" target="_blank" rel="noopener">Megnyitás &#8599;</a></div>
           </details>
@@ -1521,56 +1527,56 @@ nem szerepel benne, írd: "Nem tudom a forrás alapján."</pre>
         <div class="scroll"><table>
           <thead><tr><th>Eszköz</th><th>Rövid leírás</th><th>Ár</th><th>Link</th></tr></thead>
           <tbody>
-            <tr><td class="name">Rayyan</td><td>AI-alapú szisztematikus review és screening platform; releváns/irreleváns tanulmányok gyors rangsorolása és automatikus adatkinyerés.</td><td>Freemium</td><td><a href="https://www.rayyan.ai/" target="_blank" rel="noopener">www.rayyan.ai</a></td></tr>
-            <tr><td class="name">ASReview</td><td>Nyílt forráskódú, aktív tanulásos eszköz, amely a szisztematikus review szűrési munka nagy részét (akár 95%-át) automatizálja.</td><td>Ingyenes</td><td><a href="https://asreview.ai/" target="_blank" rel="noopener">asreview.ai</a></td></tr>
-            <tr><td class="name">Covidence</td><td>Szisztematikus review-menedzsment szoftver beépített AI-osztályozással (pl. automatikus RCT-felismerés); a Cochrane-reviewek standard eszköze.</td><td>Fizetős</td><td><a href="https://www.covidence.org/" target="_blank" rel="noopener">www.covidence.org</a></td></tr>
-            <tr><td class="name">DistillerSR</td><td>AI-vezérelt literatúra-review szoftver, NLP-alapú tanuló algoritmussal priorizálja a releváns forrásokat, végigkíséri a review-protokoll kivitelezését.</td><td>Fizetős</td><td><a href="https://www.distillersr.com/" target="_blank" rel="noopener">www.distillersr.com</a></td></tr>
-            <tr><td class="name">Nested Knowledge</td><td>AI-alapú evidenciaszintézis platform (AutoLit): keresési stratégiától a dupla screeningig AI-támogatás emberi felülvizsgálattal.</td><td>Fizetős</td><td><a href="https://about.nested-knowledge.com/" target="_blank" rel="noopener">about.nested-knowledge.com</a></td></tr>
-            <tr><td class="name">Qualtrics iQ</td><td>Kérdőív- és felmérés-tervező platform beépített AI-funkciókkal: automatikus kérdésjavítás, hiányosság-felismerés, mintadizájn-segítség.</td><td>Fizetős</td><td><a href="https://www.qualtrics.com/" target="_blank" rel="noopener">www.qualtrics.com</a></td></tr>
-            <tr><td class="name">QuestionPro AI</td><td>A kutatási cél rövid leírásából generál teljes kérdőívet (kérdések, skálák, logika) — gyors módszertan- és mérőeszköz-tervezés.</td><td>Freemium</td><td><a href="https://www.questionpro.com/features/questionpro-ai/" target="_blank" rel="noopener">www.questionpro.com/features/questionpro-ai</a></td></tr>
-            <tr><td class="name">Atom</td><td>Hatékony eszköz kutatási (pályázati) támogatások keresésére; hetente személyre szabott támogatási javaslatokat ad — hasznos a kutatási terv finanszírozási részéhez.</td><td>Freemium</td><td><a href="https://atomgrants.com/" target="_blank" rel="noopener">atomgrants.com</a></td></tr>
-            <tr><td class="name">Foresight Risk Intelligence</td><td>MI-vezérelt projektmenedzsment platform (Primavera P6, MS Project integrációval) nagy projektek tervezéséhez és kockázatkezeléséhez. Niche: elsősorban építőipari projekteknél releváns.</td><td>Fizetős</td><td><a href="https://www.foresight.works/" target="_blank" rel="noopener">www.foresight.works</a></td></tr>
-            <tr><td class="name">Scribe</td><td>Automatikusan lépésről lépésre dokumentálja a képernyőn végzett folyamatokat — hasznos a kutatási/mérési eljárás (módszertan) rögzítéséhez és megosztásához.</td><td>Freemium</td><td><a href="https://scribehow.com/" target="_blank" rel="noopener">scribehow.com</a></td></tr>
+            <tr data-price="mixed"><td class="name">Rayyan</td><td>AI-alapú szisztematikus review és screening platform; releváns/irreleváns tanulmányok gyors rangsorolása és automatikus adatkinyerés.</td><td>Freemium</td><td><a href="https://www.rayyan.ai/" target="_blank" rel="noopener">www.rayyan.ai</a></td></tr>
+            <tr data-price="free"><td class="name">ASReview</td><td>Nyílt forráskódú, aktív tanulásos eszköz, amely a szisztematikus review szűrési munka nagy részét (akár 95%-át) automatizálja.</td><td>Ingyenes</td><td><a href="https://asreview.ai/" target="_blank" rel="noopener">asreview.ai</a></td></tr>
+            <tr data-price="paid"><td class="name">Covidence</td><td>Szisztematikus review-menedzsment szoftver beépített AI-osztályozással (pl. automatikus RCT-felismerés); a Cochrane-reviewek standard eszköze.</td><td>Fizetős</td><td><a href="https://www.covidence.org/" target="_blank" rel="noopener">www.covidence.org</a></td></tr>
+            <tr data-price="paid"><td class="name">DistillerSR</td><td>AI-vezérelt literatúra-review szoftver, NLP-alapú tanuló algoritmussal priorizálja a releváns forrásokat, végigkíséri a review-protokoll kivitelezését.</td><td>Fizetős</td><td><a href="https://www.distillersr.com/" target="_blank" rel="noopener">www.distillersr.com</a></td></tr>
+            <tr data-price="paid"><td class="name">Nested Knowledge</td><td>AI-alapú evidenciaszintézis platform (AutoLit): keresési stratégiától a dupla screeningig AI-támogatás emberi felülvizsgálattal.</td><td>Fizetős</td><td><a href="https://about.nested-knowledge.com/" target="_blank" rel="noopener">about.nested-knowledge.com</a></td></tr>
+            <tr data-price="paid"><td class="name">Qualtrics iQ</td><td>Kérdőív- és felmérés-tervező platform beépített AI-funkciókkal: automatikus kérdésjavítás, hiányosság-felismerés, mintadizájn-segítség.</td><td>Fizetős</td><td><a href="https://www.qualtrics.com/" target="_blank" rel="noopener">www.qualtrics.com</a></td></tr>
+            <tr data-price="mixed"><td class="name">QuestionPro AI</td><td>A kutatási cél rövid leírásából generál teljes kérdőívet (kérdések, skálák, logika) — gyors módszertan- és mérőeszköz-tervezés.</td><td>Freemium</td><td><a href="https://www.questionpro.com/features/questionpro-ai/" target="_blank" rel="noopener">www.questionpro.com/features/questionpro-ai</a></td></tr>
+            <tr data-price="mixed"><td class="name">Atom</td><td>Hatékony eszköz kutatási (pályázati) támogatások keresésére; hetente személyre szabott támogatási javaslatokat ad — hasznos a kutatási terv finanszírozási részéhez.</td><td>Freemium</td><td><a href="https://atomgrants.com/" target="_blank" rel="noopener">atomgrants.com</a></td></tr>
+            <tr data-price="paid"><td class="name">Foresight Risk Intelligence</td><td>MI-vezérelt projektmenedzsment platform (Primavera P6, MS Project integrációval) nagy projektek tervezéséhez és kockázatkezeléséhez. Niche: elsősorban építőipari projekteknél releváns.</td><td>Fizetős</td><td><a href="https://www.foresight.works/" target="_blank" rel="noopener">www.foresight.works</a></td></tr>
+            <tr data-price="mixed"><td class="name">Scribe</td><td>Automatikusan lépésről lépésre dokumentálja a képernyőn végzett folyamatokat — hasznos a kutatási/mérési eljárás (módszertan) rögzítéséhez és megosztásához.</td><td>Freemium</td><td><a href="https://scribehow.com/" target="_blank" rel="noopener">scribehow.com</a></td></tr>
           </tbody>
         </table></div>
         <div class="tool-cards">
-          <details class="tool-card">
+          <details class="tool-card" data-price="mixed">
             <summary><span class="tool-name">Rayyan</span><span class="price-badge price-mixed">Freemium</span></summary>
             <div class="tool-card-body"><p>AI-alapú szisztematikus review és screening platform; releváns/irreleváns tanulmányok gyors rangsorolása és automatikus adatkinyerés.</p><a class="tool-link" href="https://www.rayyan.ai/" target="_blank" rel="noopener">Megnyitás &#8599;</a></div>
           </details>
-          <details class="tool-card">
+          <details class="tool-card" data-price="free">
             <summary><span class="tool-name">ASReview</span><span class="price-badge price-free">Ingyenes</span></summary>
             <div class="tool-card-body"><p>Nyílt forráskódú, aktív tanulásos eszköz, amely a szisztematikus review szűrési munka nagy részét (akár 95%-át) automatizálja.</p><a class="tool-link" href="https://asreview.ai/" target="_blank" rel="noopener">Megnyitás &#8599;</a></div>
           </details>
-          <details class="tool-card">
+          <details class="tool-card" data-price="paid">
             <summary><span class="tool-name">Covidence</span><span class="price-badge price-paid">Fizetős</span></summary>
             <div class="tool-card-body"><p>Szisztematikus review-menedzsment szoftver beépített AI-osztályozással (pl. automatikus RCT-felismerés); a Cochrane-reviewek standard eszköze.</p><a class="tool-link" href="https://www.covidence.org/" target="_blank" rel="noopener">Megnyitás &#8599;</a></div>
           </details>
-          <details class="tool-card">
+          <details class="tool-card" data-price="paid">
             <summary><span class="tool-name">DistillerSR</span><span class="price-badge price-paid">Fizetős</span></summary>
             <div class="tool-card-body"><p>AI-vezérelt literatúra-review szoftver, NLP-alapú tanuló algoritmussal priorizálja a releváns forrásokat, végigkíséri a review-protokoll kivitelezését.</p><a class="tool-link" href="https://www.distillersr.com/" target="_blank" rel="noopener">Megnyitás &#8599;</a></div>
           </details>
-          <details class="tool-card">
+          <details class="tool-card" data-price="paid">
             <summary><span class="tool-name">Nested Knowledge</span><span class="price-badge price-paid">Fizetős</span></summary>
             <div class="tool-card-body"><p>AI-alapú evidenciaszintézis platform (AutoLit): keresési stratégiától a dupla screeningig AI-támogatás emberi felülvizsgálattal.</p><a class="tool-link" href="https://about.nested-knowledge.com/" target="_blank" rel="noopener">Megnyitás &#8599;</a></div>
           </details>
-          <details class="tool-card">
+          <details class="tool-card" data-price="paid">
             <summary><span class="tool-name">Qualtrics iQ</span><span class="price-badge price-paid">Fizetős</span></summary>
             <div class="tool-card-body"><p>Kérdőív- és felmérés-tervező platform beépített AI-funkciókkal: automatikus kérdésjavítás, hiányosság-felismerés, mintadizájn-segítség.</p><a class="tool-link" href="https://www.qualtrics.com/" target="_blank" rel="noopener">Megnyitás &#8599;</a></div>
           </details>
-          <details class="tool-card">
+          <details class="tool-card" data-price="mixed">
             <summary><span class="tool-name">QuestionPro AI</span><span class="price-badge price-mixed">Freemium</span></summary>
             <div class="tool-card-body"><p>A kutatási cél rövid leírásából generál teljes kérdőívet (kérdések, skálák, logika) — gyors módszertan- és mérőeszköz-tervezés.</p><a class="tool-link" href="https://www.questionpro.com/features/questionpro-ai/" target="_blank" rel="noopener">Megnyitás &#8599;</a></div>
           </details>
-          <details class="tool-card">
+          <details class="tool-card" data-price="mixed">
             <summary><span class="tool-name">Atom</span><span class="price-badge price-mixed">Freemium</span></summary>
             <div class="tool-card-body"><p>Hatékony eszköz kutatási (pályázati) támogatások keresésére; hetente személyre szabott támogatási javaslatokat ad — hasznos a kutatási terv finanszírozási részéhez.</p><a class="tool-link" href="https://atomgrants.com/" target="_blank" rel="noopener">Megnyitás &#8599;</a></div>
           </details>
-          <details class="tool-card">
+          <details class="tool-card" data-price="paid">
             <summary><span class="tool-name">Foresight Risk Intelligence</span><span class="price-badge price-paid">Fizetős</span></summary>
             <div class="tool-card-body"><p>MI-vezérelt projektmenedzsment platform (Primavera P6, MS Project integrációval) nagy projektek tervezéséhez és kockázatkezeléséhez. Niche: elsősorban építőipari projekteknél releváns.</p><a class="tool-link" href="https://www.foresight.works/" target="_blank" rel="noopener">Megnyitás &#8599;</a></div>
           </details>
-          <details class="tool-card">
+          <details class="tool-card" data-price="mixed">
             <summary><span class="tool-name">Scribe</span><span class="price-badge price-mixed">Freemium</span></summary>
             <div class="tool-card-body"><p>Automatikusan lépésről lépésre dokumentálja a képernyőn végzett folyamatokat — hasznos a kutatási/mérési eljárás (módszertan) rögzítéséhez és megosztásához.</p><a class="tool-link" href="https://scribehow.com/" target="_blank" rel="noopener">Megnyitás &#8599;</a></div>
           </details>
@@ -1588,46 +1594,46 @@ nem szerepel benne, írd: "Nem tudom a forrás alapján."</pre>
         <div class="scroll"><table>
           <thead><tr><th>Eszköz</th><th>Rövid leírás</th><th>Ár</th><th>Link</th></tr></thead>
           <tbody>
-            <tr><td class="name">Otter.ai</td><td>AI-alapú élő hangfelirat és interjú-transzkripció, automatikus összefoglalókkal, kulcsidézet-kiemeléssel és beszélő-azonosítással.</td><td>Freemium</td><td><a href="https://otter.ai/" target="_blank" rel="noopener">otter.ai</a></td></tr>
-            <tr><td class="name">Fireflies.ai</td><td>AI jegyzetkészítő és transzkripciós bot, amely videóhívásokon/interjúkon vesz részt, és automatikusan rögzíti, összefoglalja a beszélgetést.</td><td>Freemium</td><td><a href="https://fireflies.ai/" target="_blank" rel="noopener">fireflies.ai</a></td></tr>
-            <tr><td class="name">Sonix</td><td>54+ nyelven működő AI-transzkripciós szoftver interjúk, fókuszcsoportok hangfelvételeinek szöveggé alakítására, automatikus összefoglalókkal.</td><td>Fizetős</td><td><a href="https://sonix.ai/" target="_blank" rel="noopener">sonix.ai</a></td></tr>
-            <tr><td class="name">Trint</td><td>AI-alapú hang- és videótranszkripció 40+ nyelven, kutatási interjúk és terepmunka-felvételek gyors, szerkeszthető szöveggé alakítására.</td><td>Fizetős</td><td><a href="https://trint.com/" target="_blank" rel="noopener">trint.com</a></td></tr>
-            <tr><td class="name">Typeform AI (Research Flow)</td><td>Prompt alapján generál kérdőívet/felmérést, és AI-moderált kutatási interjúkat is lebonyolít.</td><td>Freemium</td><td><a href="https://www.typeform.com/ai" target="_blank" rel="noopener">www.typeform.com/ai</a></td></tr>
-            <tr><td class="name">SurveyMonkey AI</td><td>AI generálja és optimalizálja a felmérést egy rövid leírásból, minőség-ellenőrzést végez, segít a válaszok valós idejű begyűjtésében.</td><td>Freemium</td><td><a href="https://www.surveymonkey.com/product/features/ai/" target="_blank" rel="noopener">www.surveymonkey.com/product/features/ai</a></td></tr>
-            <tr><td class="name">Prolific</td><td>Kutatási célú résztvevő-toborzó platform 200 000+ ellenőrzött résztvevővel és 300+ intelligens szűrővel, megbízható mintavételhez.</td><td>Fizetős</td><td><a href="https://www.prolific.com/" target="_blank" rel="noopener">www.prolific.com</a></td></tr>
-            <tr><td class="name">Alrite</td><td>MI-alapú élő leirat (transzkripció) készítési szolgáltatás interjúkhoz és terepmunkához.</td><td>Freemium</td><td><a href="https://alrite.io/ai/" target="_blank" rel="noopener">alrite.io/ai</a></td></tr>
+            <tr data-price="mixed"><td class="name">Otter.ai</td><td>AI-alapú élő hangfelirat és interjú-transzkripció, automatikus összefoglalókkal, kulcsidézet-kiemeléssel és beszélő-azonosítással.</td><td>Freemium</td><td><a href="https://otter.ai/" target="_blank" rel="noopener">otter.ai</a></td></tr>
+            <tr data-price="mixed"><td class="name">Fireflies.ai</td><td>AI jegyzetkészítő és transzkripciós bot, amely videóhívásokon/interjúkon vesz részt, és automatikusan rögzíti, összefoglalja a beszélgetést.</td><td>Freemium</td><td><a href="https://fireflies.ai/" target="_blank" rel="noopener">fireflies.ai</a></td></tr>
+            <tr data-price="paid"><td class="name">Sonix</td><td>54+ nyelven működő AI-transzkripciós szoftver interjúk, fókuszcsoportok hangfelvételeinek szöveggé alakítására, automatikus összefoglalókkal.</td><td>Fizetős</td><td><a href="https://sonix.ai/" target="_blank" rel="noopener">sonix.ai</a></td></tr>
+            <tr data-price="paid"><td class="name">Trint</td><td>AI-alapú hang- és videótranszkripció 40+ nyelven, kutatási interjúk és terepmunka-felvételek gyors, szerkeszthető szöveggé alakítására.</td><td>Fizetős</td><td><a href="https://trint.com/" target="_blank" rel="noopener">trint.com</a></td></tr>
+            <tr data-price="mixed"><td class="name">Typeform AI (Research Flow)</td><td>Prompt alapján generál kérdőívet/felmérést, és AI-moderált kutatási interjúkat is lebonyolít.</td><td>Freemium</td><td><a href="https://www.typeform.com/ai" target="_blank" rel="noopener">www.typeform.com/ai</a></td></tr>
+            <tr data-price="mixed"><td class="name">SurveyMonkey AI</td><td>AI generálja és optimalizálja a felmérést egy rövid leírásból, minőség-ellenőrzést végez, segít a válaszok valós idejű begyűjtésében.</td><td>Freemium</td><td><a href="https://www.surveymonkey.com/product/features/ai/" target="_blank" rel="noopener">www.surveymonkey.com/product/features/ai</a></td></tr>
+            <tr data-price="paid"><td class="name">Prolific</td><td>Kutatási célú résztvevő-toborzó platform 200 000+ ellenőrzött résztvevővel és 300+ intelligens szűrővel, megbízható mintavételhez.</td><td>Fizetős</td><td><a href="https://www.prolific.com/" target="_blank" rel="noopener">www.prolific.com</a></td></tr>
+            <tr data-price="mixed"><td class="name">Alrite</td><td>MI-alapú élő leirat (transzkripció) készítési szolgáltatás interjúkhoz és terepmunkához.</td><td>Freemium</td><td><a href="https://alrite.io/ai/" target="_blank" rel="noopener">alrite.io/ai</a></td></tr>
           </tbody>
         </table></div>
         <div class="tool-cards">
-          <details class="tool-card">
+          <details class="tool-card" data-price="mixed">
             <summary><span class="tool-name">Otter.ai</span><span class="price-badge price-mixed">Freemium</span></summary>
             <div class="tool-card-body"><p>AI-alapú élő hangfelirat és interjú-transzkripció, automatikus összefoglalókkal, kulcsidézet-kiemeléssel és beszélő-azonosítással.</p><a class="tool-link" href="https://otter.ai/" target="_blank" rel="noopener">Megnyitás &#8599;</a></div>
           </details>
-          <details class="tool-card">
+          <details class="tool-card" data-price="mixed">
             <summary><span class="tool-name">Fireflies.ai</span><span class="price-badge price-mixed">Freemium</span></summary>
             <div class="tool-card-body"><p>AI jegyzetkészítő és transzkripciós bot, amely videóhívásokon/interjúkon vesz részt, és automatikusan rögzíti, összefoglalja a beszélgetést.</p><a class="tool-link" href="https://fireflies.ai/" target="_blank" rel="noopener">Megnyitás &#8599;</a></div>
           </details>
-          <details class="tool-card">
+          <details class="tool-card" data-price="paid">
             <summary><span class="tool-name">Sonix</span><span class="price-badge price-paid">Fizetős</span></summary>
             <div class="tool-card-body"><p>54+ nyelven működő AI-transzkripciós szoftver interjúk, fókuszcsoportok hangfelvételeinek szöveggé alakítására, automatikus összefoglalókkal.</p><a class="tool-link" href="https://sonix.ai/" target="_blank" rel="noopener">Megnyitás &#8599;</a></div>
           </details>
-          <details class="tool-card">
+          <details class="tool-card" data-price="paid">
             <summary><span class="tool-name">Trint</span><span class="price-badge price-paid">Fizetős</span></summary>
             <div class="tool-card-body"><p>AI-alapú hang- és videótranszkripció 40+ nyelven, kutatási interjúk és terepmunka-felvételek gyors, szerkeszthető szöveggé alakítására.</p><a class="tool-link" href="https://trint.com/" target="_blank" rel="noopener">Megnyitás &#8599;</a></div>
           </details>
-          <details class="tool-card">
+          <details class="tool-card" data-price="mixed">
             <summary><span class="tool-name">Typeform AI (Research Flow)</span><span class="price-badge price-mixed">Freemium</span></summary>
             <div class="tool-card-body"><p>Prompt alapján generál kérdőívet/felmérést, és AI-moderált kutatási interjúkat is lebonyolít.</p><a class="tool-link" href="https://www.typeform.com/ai" target="_blank" rel="noopener">Megnyitás &#8599;</a></div>
           </details>
-          <details class="tool-card">
+          <details class="tool-card" data-price="mixed">
             <summary><span class="tool-name">SurveyMonkey AI</span><span class="price-badge price-mixed">Freemium</span></summary>
             <div class="tool-card-body"><p>AI generálja és optimalizálja a felmérést egy rövid leírásból, minőség-ellenőrzést végez, segít a válaszok valós idejű begyűjtésében.</p><a class="tool-link" href="https://www.surveymonkey.com/product/features/ai/" target="_blank" rel="noopener">Megnyitás &#8599;</a></div>
           </details>
-          <details class="tool-card">
+          <details class="tool-card" data-price="paid">
             <summary><span class="tool-name">Prolific</span><span class="price-badge price-paid">Fizetős</span></summary>
             <div class="tool-card-body"><p>Kutatási célú résztvevő-toborzó platform 200 000+ ellenőrzött résztvevővel és 300+ intelligens szűrővel, megbízható mintavételhez.</p><a class="tool-link" href="https://www.prolific.com/" target="_blank" rel="noopener">Megnyitás &#8599;</a></div>
           </details>
-          <details class="tool-card">
+          <details class="tool-card" data-price="mixed">
             <summary><span class="tool-name">Alrite</span><span class="price-badge price-mixed">Freemium</span></summary>
             <div class="tool-card-body"><p>MI-alapú élő leirat (transzkripció) készítési szolgáltatás interjúkhoz és terepmunkához.</p><a class="tool-link" href="https://alrite.io/ai/" target="_blank" rel="noopener">Megnyitás &#8599;</a></div>
           </details>
@@ -1645,66 +1651,66 @@ nem szerepel benne, írd: "Nem tudom a forrás alapján."</pre>
         <div class="scroll"><table>
           <thead><tr><th>Eszköz</th><th>Rövid leírás</th><th>Ár</th><th>Link</th></tr></thead>
           <tbody>
-            <tr><td class="name">NVivo AI Cloud (Lumivero)</td><td>A vezető kvalitatív/mixed-methods elemző szoftver AI-natív felhő verziója (AURA asszisztens): automatikus kódolás, témafelismerés.</td><td>Fizetős</td><td><a href="https://lumivero.com/products/nvivo/" target="_blank" rel="noopener">lumivero.com/products/nvivo</a></td></tr>
-            <tr><td class="name">MAXQDA AI Assist</td><td>A MAXQDA kvalitatív elemző szoftver AI-kiegészítője: automatikus transzkripció, összefoglalás, kódjavaslatok a kvalitatív kódoláshoz.</td><td>Freemium</td><td><a href="https://www.maxqda.com/products/ai-assist" target="_blank" rel="noopener">www.maxqda.com/products/ai-assist</a></td></tr>
-            <tr><td class="name">ATLAS.ti AI Coding</td><td>OpenAI-alapú „Intentional AI Coding”: a kutató céljai alapján automatikusan releváns kódokat generál, AI-összefoglalókkal és szentiment-elemzéssel.</td><td>Fizetős</td><td><a href="https://atlasti.com/ai-coding-powered-by-openai" target="_blank" rel="noopener">atlasti.com/ai-coding-powered-by-openai</a></td></tr>
-            <tr><td class="name">Delve</td><td>Felhőalapú kvalitatív kódoló szoftver beépített AI-asszisztenssel, amely „peer debriefer”-ként segít a kódolás validálásában.</td><td>Fizetős</td><td><a href="https://delvetool.com/" target="_blank" rel="noopener">delvetool.com</a></td></tr>
-            <tr><td class="name">Dovetail AI</td><td>Kutatási adatok (interjúk, felmérés-válaszok) AI-alapú összegzése, kódolása és mintázatkeresése, nagy mennyiségű kvalitatív adathoz.</td><td>Freemium</td><td><a href="https://dovetail.com/product/ai-projects/" target="_blank" rel="noopener">dovetail.com/product/ai-projects</a></td></tr>
-            <tr><td class="name">Julius AI</td><td>AI adatelemző asszisztens: természetes nyelvű kérdésekből statisztikai elemzéseket és 40+ típusú interaktív grafikont készít.</td><td>Freemium</td><td><a href="https://julius.ai/" target="_blank" rel="noopener">julius.ai</a></td></tr>
-            <tr><td class="name">ChatGPT Advanced Data Analysis</td><td>A ChatGPT beépített kódfuttató funkciója: feltöltött kutatási adatállományokon (CSV, Excel) statisztikai számítás és vizualizáció kódgenerálással.</td><td>Fizetős</td><td><a href="https://openai.com/chatgpt/" target="_blank" rel="noopener">openai.com/chatgpt</a></td></tr>
-            <tr><td class="name">JASP</td><td>Ingyenes, nyílt forráskódú statisztikai szoftver automatizált klasszikus és Bayes-i elemzésekkel, egyszerű kezelőfelülettel.</td><td>Ingyenes</td><td><a href="https://jasp-stats.org/" target="_blank" rel="noopener">jasp-stats.org</a></td></tr>
-            <tr><td class="name">Tableau AI (Tableau Agent)</td><td>Természetes nyelvű lekérdezésből automatikusan diagramot, táblázatot vagy számítást generáló AI-funkció a kutatási adatok feltárásához.</td><td>Fizetős</td><td><a href="https://www.tableau.com/blog/what-is-tableau-agent" target="_blank" rel="noopener">www.tableau.com/blog/what-is-tableau-agent</a></td></tr>
-            <tr><td class="name">Wolfram Alpha</td><td>Online számítási/tudásmotor, amely természetes nyelvi bevitellel old meg matematikai és statisztikai számításokat, jól használható kvantitatív elemzésnél.</td><td>Freemium</td><td><a href="https://www.wolframalpha.com/" target="_blank" rel="noopener">www.wolframalpha.com</a></td></tr>
-            <tr><td class="name">Manus</td><td>Autonóm MI-ügynök komplex feladatok önálló elvégzésére: jelentésírás, adatelemzés és tartalomgenerálás egy adott kutatási adathalmazon.</td><td>Fizetős</td><td><a href="https://manus.im" target="_blank" rel="noopener">manus.im</a></td></tr>
-            <tr><td class="name">Napkin</td><td>Szöveges tartalomból (pl. eredmények leírásából) automatikusan vizuális ábrákat és infografikákat készít az adatok/összefüggések szemléltetéséhez.</td><td>Freemium</td><td><a href="https://www.napkin.ai/" target="_blank" rel="noopener">www.napkin.ai</a></td></tr>
+            <tr data-price="paid"><td class="name">NVivo AI Cloud (Lumivero)</td><td>A vezető kvalitatív/mixed-methods elemző szoftver AI-natív felhő verziója (AURA asszisztens): automatikus kódolás, témafelismerés.</td><td>Fizetős</td><td><a href="https://lumivero.com/products/nvivo/" target="_blank" rel="noopener">lumivero.com/products/nvivo</a></td></tr>
+            <tr data-price="mixed"><td class="name">MAXQDA AI Assist</td><td>A MAXQDA kvalitatív elemző szoftver AI-kiegészítője: automatikus transzkripció, összefoglalás, kódjavaslatok a kvalitatív kódoláshoz.</td><td>Freemium</td><td><a href="https://www.maxqda.com/products/ai-assist" target="_blank" rel="noopener">www.maxqda.com/products/ai-assist</a></td></tr>
+            <tr data-price="paid"><td class="name">ATLAS.ti AI Coding</td><td>OpenAI-alapú „Intentional AI Coding”: a kutató céljai alapján automatikusan releváns kódokat generál, AI-összefoglalókkal és szentiment-elemzéssel.</td><td>Fizetős</td><td><a href="https://atlasti.com/ai-coding-powered-by-openai" target="_blank" rel="noopener">atlasti.com/ai-coding-powered-by-openai</a></td></tr>
+            <tr data-price="paid"><td class="name">Delve</td><td>Felhőalapú kvalitatív kódoló szoftver beépített AI-asszisztenssel, amely „peer debriefer”-ként segít a kódolás validálásában.</td><td>Fizetős</td><td><a href="https://delvetool.com/" target="_blank" rel="noopener">delvetool.com</a></td></tr>
+            <tr data-price="mixed"><td class="name">Dovetail AI</td><td>Kutatási adatok (interjúk, felmérés-válaszok) AI-alapú összegzése, kódolása és mintázatkeresése, nagy mennyiségű kvalitatív adathoz.</td><td>Freemium</td><td><a href="https://dovetail.com/product/ai-projects/" target="_blank" rel="noopener">dovetail.com/product/ai-projects</a></td></tr>
+            <tr data-price="mixed"><td class="name">Julius AI</td><td>AI adatelemző asszisztens: természetes nyelvű kérdésekből statisztikai elemzéseket és 40+ típusú interaktív grafikont készít.</td><td>Freemium</td><td><a href="https://julius.ai/" target="_blank" rel="noopener">julius.ai</a></td></tr>
+            <tr data-price="paid"><td class="name">ChatGPT Advanced Data Analysis</td><td>A ChatGPT beépített kódfuttató funkciója: feltöltött kutatási adatállományokon (CSV, Excel) statisztikai számítás és vizualizáció kódgenerálással.</td><td>Fizetős</td><td><a href="https://openai.com/chatgpt/" target="_blank" rel="noopener">openai.com/chatgpt</a></td></tr>
+            <tr data-price="free"><td class="name">JASP</td><td>Ingyenes, nyílt forráskódú statisztikai szoftver automatizált klasszikus és Bayes-i elemzésekkel, egyszerű kezelőfelülettel.</td><td>Ingyenes</td><td><a href="https://jasp-stats.org/" target="_blank" rel="noopener">jasp-stats.org</a></td></tr>
+            <tr data-price="paid"><td class="name">Tableau AI (Tableau Agent)</td><td>Természetes nyelvű lekérdezésből automatikusan diagramot, táblázatot vagy számítást generáló AI-funkció a kutatási adatok feltárásához.</td><td>Fizetős</td><td><a href="https://www.tableau.com/blog/what-is-tableau-agent" target="_blank" rel="noopener">www.tableau.com/blog/what-is-tableau-agent</a></td></tr>
+            <tr data-price="mixed"><td class="name">Wolfram Alpha</td><td>Online számítási/tudásmotor, amely természetes nyelvi bevitellel old meg matematikai és statisztikai számításokat, jól használható kvantitatív elemzésnél.</td><td>Freemium</td><td><a href="https://www.wolframalpha.com/" target="_blank" rel="noopener">www.wolframalpha.com</a></td></tr>
+            <tr data-price="paid"><td class="name">Manus</td><td>Autonóm MI-ügynök komplex feladatok önálló elvégzésére: jelentésírás, adatelemzés és tartalomgenerálás egy adott kutatási adathalmazon.</td><td>Fizetős</td><td><a href="https://manus.im" target="_blank" rel="noopener">manus.im</a></td></tr>
+            <tr data-price="mixed"><td class="name">Napkin</td><td>Szöveges tartalomból (pl. eredmények leírásából) automatikusan vizuális ábrákat és infografikákat készít az adatok/összefüggések szemléltetéséhez.</td><td>Freemium</td><td><a href="https://www.napkin.ai/" target="_blank" rel="noopener">www.napkin.ai</a></td></tr>
           </tbody>
         </table></div>
         <div class="tool-cards">
-          <details class="tool-card">
+          <details class="tool-card" data-price="paid">
             <summary><span class="tool-name">NVivo AI Cloud (Lumivero)</span><span class="price-badge price-paid">Fizetős</span></summary>
             <div class="tool-card-body"><p>A vezető kvalitatív/mixed-methods elemző szoftver AI-natív felhő verziója (AURA asszisztens): automatikus kódolás, témafelismerés.</p><a class="tool-link" href="https://lumivero.com/products/nvivo/" target="_blank" rel="noopener">Megnyitás &#8599;</a></div>
           </details>
-          <details class="tool-card">
+          <details class="tool-card" data-price="mixed">
             <summary><span class="tool-name">MAXQDA AI Assist</span><span class="price-badge price-mixed">Freemium</span></summary>
             <div class="tool-card-body"><p>A MAXQDA kvalitatív elemző szoftver AI-kiegészítője: automatikus transzkripció, összefoglalás, kódjavaslatok a kvalitatív kódoláshoz.</p><a class="tool-link" href="https://www.maxqda.com/products/ai-assist" target="_blank" rel="noopener">Megnyitás &#8599;</a></div>
           </details>
-          <details class="tool-card">
+          <details class="tool-card" data-price="paid">
             <summary><span class="tool-name">ATLAS.ti AI Coding</span><span class="price-badge price-paid">Fizetős</span></summary>
             <div class="tool-card-body"><p>OpenAI-alapú „Intentional AI Coding”: a kutató céljai alapján automatikusan releváns kódokat generál, AI-összefoglalókkal és szentiment-elemzéssel.</p><a class="tool-link" href="https://atlasti.com/ai-coding-powered-by-openai" target="_blank" rel="noopener">Megnyitás &#8599;</a></div>
           </details>
-          <details class="tool-card">
+          <details class="tool-card" data-price="paid">
             <summary><span class="tool-name">Delve</span><span class="price-badge price-paid">Fizetős</span></summary>
             <div class="tool-card-body"><p>Felhőalapú kvalitatív kódoló szoftver beépített AI-asszisztenssel, amely „peer debriefer”-ként segít a kódolás validálásában.</p><a class="tool-link" href="https://delvetool.com/" target="_blank" rel="noopener">Megnyitás &#8599;</a></div>
           </details>
-          <details class="tool-card">
+          <details class="tool-card" data-price="mixed">
             <summary><span class="tool-name">Dovetail AI</span><span class="price-badge price-mixed">Freemium</span></summary>
             <div class="tool-card-body"><p>Kutatási adatok (interjúk, felmérés-válaszok) AI-alapú összegzése, kódolása és mintázatkeresése, nagy mennyiségű kvalitatív adathoz.</p><a class="tool-link" href="https://dovetail.com/product/ai-projects/" target="_blank" rel="noopener">Megnyitás &#8599;</a></div>
           </details>
-          <details class="tool-card">
+          <details class="tool-card" data-price="mixed">
             <summary><span class="tool-name">Julius AI</span><span class="price-badge price-mixed">Freemium</span></summary>
             <div class="tool-card-body"><p>AI adatelemző asszisztens: természetes nyelvű kérdésekből statisztikai elemzéseket és 40+ típusú interaktív grafikont készít.</p><a class="tool-link" href="https://julius.ai/" target="_blank" rel="noopener">Megnyitás &#8599;</a></div>
           </details>
-          <details class="tool-card">
+          <details class="tool-card" data-price="paid">
             <summary><span class="tool-name">ChatGPT Advanced Data Analysis</span><span class="price-badge price-paid">Fizetős</span></summary>
             <div class="tool-card-body"><p>A ChatGPT beépített kódfuttató funkciója: feltöltött kutatási adatállományokon (CSV, Excel) statisztikai számítás és vizualizáció kódgenerálással.</p><a class="tool-link" href="https://openai.com/chatgpt/" target="_blank" rel="noopener">Megnyitás &#8599;</a></div>
           </details>
-          <details class="tool-card">
+          <details class="tool-card" data-price="free">
             <summary><span class="tool-name">JASP</span><span class="price-badge price-free">Ingyenes</span></summary>
             <div class="tool-card-body"><p>Ingyenes, nyílt forráskódú statisztikai szoftver automatizált klasszikus és Bayes-i elemzésekkel, egyszerű kezelőfelülettel.</p><a class="tool-link" href="https://jasp-stats.org/" target="_blank" rel="noopener">Megnyitás &#8599;</a></div>
           </details>
-          <details class="tool-card">
+          <details class="tool-card" data-price="paid">
             <summary><span class="tool-name">Tableau AI (Tableau Agent)</span><span class="price-badge price-paid">Fizetős</span></summary>
             <div class="tool-card-body"><p>Természetes nyelvű lekérdezésből automatikusan diagramot, táblázatot vagy számítást generáló AI-funkció a kutatási adatok feltárásához.</p><a class="tool-link" href="https://www.tableau.com/blog/what-is-tableau-agent" target="_blank" rel="noopener">Megnyitás &#8599;</a></div>
           </details>
-          <details class="tool-card">
+          <details class="tool-card" data-price="mixed">
             <summary><span class="tool-name">Wolfram Alpha</span><span class="price-badge price-mixed">Freemium</span></summary>
             <div class="tool-card-body"><p>Online számítási/tudásmotor, amely természetes nyelvi bevitellel old meg matematikai és statisztikai számításokat, jól használható kvantitatív elemzésnél.</p><a class="tool-link" href="https://www.wolframalpha.com/" target="_blank" rel="noopener">Megnyitás &#8599;</a></div>
           </details>
-          <details class="tool-card">
+          <details class="tool-card" data-price="paid">
             <summary><span class="tool-name">Manus</span><span class="price-badge price-paid">Fizetős</span></summary>
             <div class="tool-card-body"><p>Autonóm MI-ügynök komplex feladatok önálló elvégzésére: jelentésírás, adatelemzés és tartalomgenerálás egy adott kutatási adathalmazon.</p><a class="tool-link" href="https://manus.im" target="_blank" rel="noopener">Megnyitás &#8599;</a></div>
           </details>
-          <details class="tool-card">
+          <details class="tool-card" data-price="mixed">
             <summary><span class="tool-name">Napkin</span><span class="price-badge price-mixed">Freemium</span></summary>
             <div class="tool-card-body"><p>Szöveges tartalomból (pl. eredmények leírásából) automatikusan vizuális ábrákat és infografikákat készít az adatok/összefüggések szemléltetéséhez.</p><a class="tool-link" href="https://www.napkin.ai/" target="_blank" rel="noopener">Megnyitás &#8599;</a></div>
           </details>
@@ -1724,26 +1730,26 @@ nem szerepel benne, írd: "Nem tudom a forrás alapján."</pre>
         <div class="scroll"><table>
           <thead><tr><th>Eszköz</th><th>Rövid leírás</th><th>Ár</th><th>Link</th></tr></thead>
           <tbody>
-            <tr><td class="name">Thesify (Reviewer)</td><td>Szakaszonkénti AI-visszajelzés: ellenőrzi, hogy a következtetések valóban az eredményekből következnek-e, jelzi a túlinterpretálást.</td><td>Freemium</td><td><a href="https://www.thesify.ai/" target="_blank" rel="noopener">www.thesify.ai</a></td></tr>
-            <tr><td class="name">Keenious</td><td>A megírt diszkusszió-részt elemzi, és AI-ajánlómotorral releváns, kapcsolódó cikkeket javasol az eredmények kontextusba helyezéséhez. Word/Docs-bővítmény.</td><td>Freemium</td><td><a href="https://keenious.com/" target="_blank" rel="noopener">keenious.com</a></td></tr>
-            <tr><td class="name">Logically (korábban Afforai)</td><td>Több forrás összehasonlítására, ellentmondások és összefüggések feltárására képes AI-munkaterület az eredmények szakirodalommal való összevetéséhez.</td><td>Freemium</td><td><a href="https://logically.app/" target="_blank" rel="noopener">logically.app</a></td></tr>
-            <tr><td class="name">Paperguide — AI Discussion Writer</td><td>Kutatási kérdés és forrásanyag alapján strukturált, hivatkozásokkal ellátott diszkusszió/következtetés-részeket generál, összeveti az eredményeket a szakirodalommal.</td><td>Freemium</td><td><a href="https://paperguide.ai/" target="_blank" rel="noopener">paperguide.ai</a></td></tr>
+            <tr data-price="mixed"><td class="name">Thesify (Reviewer)</td><td>Szakaszonkénti AI-visszajelzés: ellenőrzi, hogy a következtetések valóban az eredményekből következnek-e, jelzi a túlinterpretálást.</td><td>Freemium</td><td><a href="https://www.thesify.ai/" target="_blank" rel="noopener">www.thesify.ai</a></td></tr>
+            <tr data-price="mixed"><td class="name">Keenious</td><td>A megírt diszkusszió-részt elemzi, és AI-ajánlómotorral releváns, kapcsolódó cikkeket javasol az eredmények kontextusba helyezéséhez. Word/Docs-bővítmény.</td><td>Freemium</td><td><a href="https://keenious.com/" target="_blank" rel="noopener">keenious.com</a></td></tr>
+            <tr data-price="mixed"><td class="name">Logically (korábban Afforai)</td><td>Több forrás összehasonlítására, ellentmondások és összefüggések feltárására képes AI-munkaterület az eredmények szakirodalommal való összevetéséhez.</td><td>Freemium</td><td><a href="https://logically.app/" target="_blank" rel="noopener">logically.app</a></td></tr>
+            <tr data-price="mixed"><td class="name">Paperguide — AI Discussion Writer</td><td>Kutatási kérdés és forrásanyag alapján strukturált, hivatkozásokkal ellátott diszkusszió/következtetés-részeket generál, összeveti az eredményeket a szakirodalommal.</td><td>Freemium</td><td><a href="https://paperguide.ai/" target="_blank" rel="noopener">paperguide.ai</a></td></tr>
           </tbody>
         </table></div>
         <div class="tool-cards">
-          <details class="tool-card">
+          <details class="tool-card" data-price="mixed">
             <summary><span class="tool-name">Thesify (Reviewer)</span><span class="price-badge price-mixed">Freemium</span></summary>
             <div class="tool-card-body"><p>Szakaszonkénti AI-visszajelzés: ellenőrzi, hogy a következtetések valóban az eredményekből következnek-e, jelzi a túlinterpretálást.</p><a class="tool-link" href="https://www.thesify.ai/" target="_blank" rel="noopener">Megnyitás &#8599;</a></div>
           </details>
-          <details class="tool-card">
+          <details class="tool-card" data-price="mixed">
             <summary><span class="tool-name">Keenious</span><span class="price-badge price-mixed">Freemium</span></summary>
             <div class="tool-card-body"><p>A megírt diszkusszió-részt elemzi, és AI-ajánlómotorral releváns, kapcsolódó cikkeket javasol az eredmények kontextusba helyezéséhez. Word/Docs-bővítmény.</p><a class="tool-link" href="https://keenious.com/" target="_blank" rel="noopener">Megnyitás &#8599;</a></div>
           </details>
-          <details class="tool-card">
+          <details class="tool-card" data-price="mixed">
             <summary><span class="tool-name">Logically (korábban Afforai)</span><span class="price-badge price-mixed">Freemium</span></summary>
             <div class="tool-card-body"><p>Több forrás összehasonlítására, ellentmondások és összefüggések feltárására képes AI-munkaterület az eredmények szakirodalommal való összevetéséhez.</p><a class="tool-link" href="https://logically.app/" target="_blank" rel="noopener">Megnyitás &#8599;</a></div>
           </details>
-          <details class="tool-card">
+          <details class="tool-card" data-price="mixed">
             <summary><span class="tool-name">Paperguide — AI Discussion Writer</span><span class="price-badge price-mixed">Freemium</span></summary>
             <div class="tool-card-body"><p>Kutatási kérdés és forrásanyag alapján strukturált, hivatkozásokkal ellátott diszkusszió/következtetés-részeket generál, összeveti az eredményeket a szakirodalommal.</p><a class="tool-link" href="https://paperguide.ai/" target="_blank" rel="noopener">Megnyitás &#8599;</a></div>
           </details>
@@ -1761,111 +1767,111 @@ nem szerepel benne, írd: "Nem tudom a forrás alapján."</pre>
         <div class="scroll"><table>
           <thead><tr><th>Eszköz</th><th>Rövid leírás</th><th>Ár</th><th>Link</th></tr></thead>
           <tbody>
-            <tr><td class="name">Jenni.ai</td><td>AI-automatikus kiegészítés, szövegközi hivatkozások és parafrazálás. Többnyelvű, beépített plágiumellenőrzővel, csak desktopon érhető el.</td><td>Fizetős</td><td><a href="https://www.jenni.ai" target="_blank" rel="noopener">www.jenni.ai</a></td></tr>
-            <tr><td class="name">Paper Pal</td><td>Akadémiai szövegek szerkesztését segíti: kéziratellenőrzéssel jelzi a gyenge pontokat, ellenőrzi a folyóiratok technikai/nyelvi elvárásainak való megfelelést.</td><td>Freemium</td><td><a href="https://www.paperpal.com" target="_blank" rel="noopener">www.paperpal.com</a></td></tr>
-            <tr><td class="name">Quillbot</td><td>Nyelvhelyesség-ellenőrző, parafrazáló és összefoglaló eszköz. Alternatív megfogalmazásokat javasol, főleg nem anyanyelvi angolul íróknak.</td><td>Freemium</td><td><a href="https://www.quillbot.com" target="_blank" rel="noopener">www.quillbot.com</a></td></tr>
-            <tr><td class="name">Trinka</td><td>Kifejezetten akadémiai és műszaki írásra tervezett szerkesztőeszköz, a világosságot, koherenciát és akadémiai normáknak való megfelelést javítja.</td><td>Freemium</td><td><a href="https://www.trinka.ai" target="_blank" rel="noopener">www.trinka.ai</a></td></tr>
-            <tr><td class="name">Wisio</td><td>Tudományos írást támogató platform személyre szabott szövegjavaslatokkal, hivatkozáskinyeréssel, fordítással és angol nyelvi javítással.</td><td>Freemium</td><td><a href="https://www.producthunt.com/posts/wisio-app" target="_blank" rel="noopener">www.producthunt.com/posts/wisio-app</a></td></tr>
-            <tr><td class="name">Writefull</td><td>Akadémiai szövegek szerkesztése nyelvi visszajelzéssel, főleg nem anyanyelvi szerzők kéziratainak nyelvi minőségéhez.</td><td>Freemium</td><td><a href="https://www.writefull.com" target="_blank" rel="noopener">www.writefull.com</a></td></tr>
-            <tr><td class="name">Zotero (+ AI-kiegészítők)</td><td>Ingyenes, nyílt forráskódú hivatkozáskezelő; harmadik féltől származó AI-pluginokkal (pl. Beaver, PapersGPT) kiegészíthető.</td><td>Ingyenes</td><td><a href="https://www.zotero.org/" target="_blank" rel="noopener">www.zotero.org</a></td></tr>
-            <tr><td class="name">Mendeley</td><td>„Reading Assistant” (PDF-összefoglalás, kérdés-válasz) és „Ask My Library” (szemantikus keresés a teljes könyvtárban) AI-funkciókkal bővített hivatkozáskezelő.</td><td>Freemium</td><td><a href="https://www.mendeley.com/" target="_blank" rel="noopener">www.mendeley.com</a></td></tr>
-            <tr><td class="name">EndNote</td><td>„Research Assistant” AI-funkció: dokumentumokkal való chat, kulcsmegállapítások kiemelése, fordítás, ML-alapú „Find a Journal” eszköz.</td><td>Fizetős</td><td><a href="https://endnote.com/" target="_blank" rel="noopener">endnote.com</a></td></tr>
-            <tr><td class="name">Paperpile</td><td>Google Workspace-be mélyen integrált hivatkozáskezelő; „Ask AI” (béta) funkciója PDF-eket küld közvetlenül ChatGPT/Claude/Gemini modelleknek elemzésre.</td><td>Fizetős</td><td><a href="https://paperpile.com/" target="_blank" rel="noopener">paperpile.com</a></td></tr>
-            <tr><td class="name">RefWorks / EndNote Fusion</td><td>2026-ban EndNote Fusionná alakult; Copyleaks-alapú AI plágium- és AI-tartalom-ellenőrző pilot funkció, AI-alapú dokumentumösszefoglalás és -keresés.</td><td>Fizetős</td><td><a href="https://refworks.proquest.com/" target="_blank" rel="noopener">refworks.proquest.com</a></td></tr>
-            <tr><td class="name">Turnitin</td><td>Plágiumellenőrzés és AI-írás-detektálás; 16 000+ intézmény és számos tudományos folyóirat használja a benyújtott kéziratok ellenőrzésére.</td><td>Fizetős</td><td><a href="https://www.turnitin.com/" target="_blank" rel="noopener">www.turnitin.com</a></td></tr>
-            <tr><td class="name">iThenticate</td><td>Kutatók és kiadók számára fejlesztett plágium- és AI-írás-detektáló eszköz (ugyanaz a technológia, mint a Turnitiné, kutatói kéziratokra szabva).</td><td>Fizetős</td><td><a href="https://www.ithenticate.com/" target="_blank" rel="noopener">www.ithenticate.com</a></td></tr>
-            <tr><td class="name">Copyleaks</td><td>AI-tartalom-detektor és plágiumellenőrző, 30+ nyelven AI-detektálással, LMS-integrációkkal (Canvas, Moodle stb.).</td><td>Freemium</td><td><a href="https://copyleaks.com/" target="_blank" rel="noopener">copyleaks.com</a></td></tr>
-            <tr><td class="name">DeepL</td><td>Mesterséges intelligenciát használó fordítóeszköz több nyelven — hasznos nem angol anyanyelvű kutatóknak az angol nyelvű kézirat megírásához.</td><td>Freemium</td><td><a href="https://www.deepl.com" target="_blank" rel="noopener">www.deepl.com</a></td></tr>
-            <tr><td class="name">Grammarly</td><td>MI-alapú íróasszisztens, amely nyelvtani, stilisztikai és stílusjavaslatokkal segíti a szerzőt (Corvinus EDU-licenccel hallgatóknak is elérhető).</td><td>Freemium</td><td><a href="https://app.grammarly.com/" target="_blank" rel="noopener">app.grammarly.com</a></td></tr>
-            <tr><td class="name">Pro Writing Aid</td><td>Szerkesztő és írási segédprogram, amely gyakorlatias visszajelzésekkel segít a kézirat javításában (hasonló a Grammarlyhez).</td><td>Freemium</td><td><a href="https://prowritingaid.com/" target="_blank" rel="noopener">prowritingaid.com</a></td></tr>
-            <tr><td class="name">WriteSonic</td><td>MI-alapú íróasszisztens, amely különböző célokra (e-mail, összefoglaló, jelentés) készít szöveget — általános írástámogatásra használható kutatási kontextusban is.</td><td>Freemium</td><td><a href="https://writesonic.com/" target="_blank" rel="noopener">writesonic.com</a></td></tr>
-            <tr><td class="name">Speechify</td><td>Írott szöveget hangosan felolvasó MI-eszköz — hasznos a saját kézirat hangos korrektúrájához (hibák, döcögős mondatok kiszűrése).</td><td>Freemium</td><td><a href="https://speechify.com/" target="_blank" rel="noopener">speechify.com</a></td></tr>
-            <tr><td class="name">GPTZero</td><td>Felismeri az MI által generált szöveget, segít azonosítani a lehetséges etikai vétségeket a kézirat benyújtása előtt.</td><td>Freemium</td><td><a href="https://gptzero.me/" target="_blank" rel="noopener">gptzero.me</a></td></tr>
-            <tr><td class="name">ZeroGPT</td><td>Felismeri az MI által generált szöveget, segít azonosítani a lehetséges etikai vétségeket.</td><td>Freemium</td><td><a href="https://www.zerogpt.com/" target="_blank" rel="noopener">www.zerogpt.com</a></td></tr>
+            <tr data-price="paid"><td class="name">Jenni.ai</td><td>AI-automatikus kiegészítés, szövegközi hivatkozások és parafrazálás. Többnyelvű, beépített plágiumellenőrzővel, csak desktopon érhető el.</td><td>Fizetős</td><td><a href="https://www.jenni.ai" target="_blank" rel="noopener">www.jenni.ai</a></td></tr>
+            <tr data-price="mixed"><td class="name">Paper Pal</td><td>Akadémiai szövegek szerkesztését segíti: kéziratellenőrzéssel jelzi a gyenge pontokat, ellenőrzi a folyóiratok technikai/nyelvi elvárásainak való megfelelést.</td><td>Freemium</td><td><a href="https://www.paperpal.com" target="_blank" rel="noopener">www.paperpal.com</a></td></tr>
+            <tr data-price="mixed"><td class="name">Quillbot</td><td>Nyelvhelyesség-ellenőrző, parafrazáló és összefoglaló eszköz. Alternatív megfogalmazásokat javasol, főleg nem anyanyelvi angolul íróknak.</td><td>Freemium</td><td><a href="https://www.quillbot.com" target="_blank" rel="noopener">www.quillbot.com</a></td></tr>
+            <tr data-price="mixed"><td class="name">Trinka</td><td>Kifejezetten akadémiai és műszaki írásra tervezett szerkesztőeszköz, a világosságot, koherenciát és akadémiai normáknak való megfelelést javítja.</td><td>Freemium</td><td><a href="https://www.trinka.ai" target="_blank" rel="noopener">www.trinka.ai</a></td></tr>
+            <tr data-price="mixed"><td class="name">Wisio</td><td>Tudományos írást támogató platform személyre szabott szövegjavaslatokkal, hivatkozáskinyeréssel, fordítással és angol nyelvi javítással.</td><td>Freemium</td><td><a href="https://www.producthunt.com/posts/wisio-app" target="_blank" rel="noopener">www.producthunt.com/posts/wisio-app</a></td></tr>
+            <tr data-price="mixed"><td class="name">Writefull</td><td>Akadémiai szövegek szerkesztése nyelvi visszajelzéssel, főleg nem anyanyelvi szerzők kéziratainak nyelvi minőségéhez.</td><td>Freemium</td><td><a href="https://www.writefull.com" target="_blank" rel="noopener">www.writefull.com</a></td></tr>
+            <tr data-price="free"><td class="name">Zotero (+ AI-kiegészítők)</td><td>Ingyenes, nyílt forráskódú hivatkozáskezelő; harmadik féltől származó AI-pluginokkal (pl. Beaver, PapersGPT) kiegészíthető.</td><td>Ingyenes</td><td><a href="https://www.zotero.org/" target="_blank" rel="noopener">www.zotero.org</a></td></tr>
+            <tr data-price="mixed"><td class="name">Mendeley</td><td>„Reading Assistant” (PDF-összefoglalás, kérdés-válasz) és „Ask My Library” (szemantikus keresés a teljes könyvtárban) AI-funkciókkal bővített hivatkozáskezelő.</td><td>Freemium</td><td><a href="https://www.mendeley.com/" target="_blank" rel="noopener">www.mendeley.com</a></td></tr>
+            <tr data-price="paid"><td class="name">EndNote</td><td>„Research Assistant” AI-funkció: dokumentumokkal való chat, kulcsmegállapítások kiemelése, fordítás, ML-alapú „Find a Journal” eszköz.</td><td>Fizetős</td><td><a href="https://endnote.com/" target="_blank" rel="noopener">endnote.com</a></td></tr>
+            <tr data-price="paid"><td class="name">Paperpile</td><td>Google Workspace-be mélyen integrált hivatkozáskezelő; „Ask AI” (béta) funkciója PDF-eket küld közvetlenül ChatGPT/Claude/Gemini modelleknek elemzésre.</td><td>Fizetős</td><td><a href="https://paperpile.com/" target="_blank" rel="noopener">paperpile.com</a></td></tr>
+            <tr data-price="paid"><td class="name">RefWorks / EndNote Fusion</td><td>2026-ban EndNote Fusionná alakult; Copyleaks-alapú AI plágium- és AI-tartalom-ellenőrző pilot funkció, AI-alapú dokumentumösszefoglalás és -keresés.</td><td>Fizetős</td><td><a href="https://refworks.proquest.com/" target="_blank" rel="noopener">refworks.proquest.com</a></td></tr>
+            <tr data-price="paid"><td class="name">Turnitin</td><td>Plágiumellenőrzés és AI-írás-detektálás; 16 000+ intézmény és számos tudományos folyóirat használja a benyújtott kéziratok ellenőrzésére.</td><td>Fizetős</td><td><a href="https://www.turnitin.com/" target="_blank" rel="noopener">www.turnitin.com</a></td></tr>
+            <tr data-price="paid"><td class="name">iThenticate</td><td>Kutatók és kiadók számára fejlesztett plágium- és AI-írás-detektáló eszköz (ugyanaz a technológia, mint a Turnitiné, kutatói kéziratokra szabva).</td><td>Fizetős</td><td><a href="https://www.ithenticate.com/" target="_blank" rel="noopener">www.ithenticate.com</a></td></tr>
+            <tr data-price="mixed"><td class="name">Copyleaks</td><td>AI-tartalom-detektor és plágiumellenőrző, 30+ nyelven AI-detektálással, LMS-integrációkkal (Canvas, Moodle stb.).</td><td>Freemium</td><td><a href="https://copyleaks.com/" target="_blank" rel="noopener">copyleaks.com</a></td></tr>
+            <tr data-price="mixed"><td class="name">DeepL</td><td>Mesterséges intelligenciát használó fordítóeszköz több nyelven — hasznos nem angol anyanyelvű kutatóknak az angol nyelvű kézirat megírásához.</td><td>Freemium</td><td><a href="https://www.deepl.com" target="_blank" rel="noopener">www.deepl.com</a></td></tr>
+            <tr data-price="mixed"><td class="name">Grammarly</td><td>MI-alapú íróasszisztens, amely nyelvtani, stilisztikai és stílusjavaslatokkal segíti a szerzőt (Corvinus EDU-licenccel hallgatóknak is elérhető).</td><td>Freemium</td><td><a href="https://app.grammarly.com/" target="_blank" rel="noopener">app.grammarly.com</a></td></tr>
+            <tr data-price="mixed"><td class="name">Pro Writing Aid</td><td>Szerkesztő és írási segédprogram, amely gyakorlatias visszajelzésekkel segít a kézirat javításában (hasonló a Grammarlyhez).</td><td>Freemium</td><td><a href="https://prowritingaid.com/" target="_blank" rel="noopener">prowritingaid.com</a></td></tr>
+            <tr data-price="mixed"><td class="name">WriteSonic</td><td>MI-alapú íróasszisztens, amely különböző célokra (e-mail, összefoglaló, jelentés) készít szöveget — általános írástámogatásra használható kutatási kontextusban is.</td><td>Freemium</td><td><a href="https://writesonic.com/" target="_blank" rel="noopener">writesonic.com</a></td></tr>
+            <tr data-price="mixed"><td class="name">Speechify</td><td>Írott szöveget hangosan felolvasó MI-eszköz — hasznos a saját kézirat hangos korrektúrájához (hibák, döcögős mondatok kiszűrése).</td><td>Freemium</td><td><a href="https://speechify.com/" target="_blank" rel="noopener">speechify.com</a></td></tr>
+            <tr data-price="mixed"><td class="name">GPTZero</td><td>Felismeri az MI által generált szöveget, segít azonosítani a lehetséges etikai vétségeket a kézirat benyújtása előtt.</td><td>Freemium</td><td><a href="https://gptzero.me/" target="_blank" rel="noopener">gptzero.me</a></td></tr>
+            <tr data-price="mixed"><td class="name">ZeroGPT</td><td>Felismeri az MI által generált szöveget, segít azonosítani a lehetséges etikai vétségeket.</td><td>Freemium</td><td><a href="https://www.zerogpt.com/" target="_blank" rel="noopener">www.zerogpt.com</a></td></tr>
           </tbody>
         </table></div>
         <div class="tool-cards">
-          <details class="tool-card">
+          <details class="tool-card" data-price="paid">
             <summary><span class="tool-name">Jenni.ai</span><span class="price-badge price-paid">Fizetős</span></summary>
             <div class="tool-card-body"><p>AI-automatikus kiegészítés, szövegközi hivatkozások és parafrazálás. Többnyelvű, beépített plágiumellenőrzővel, csak desktopon érhető el.</p><a class="tool-link" href="https://www.jenni.ai" target="_blank" rel="noopener">Megnyitás &#8599;</a></div>
           </details>
-          <details class="tool-card">
+          <details class="tool-card" data-price="mixed">
             <summary><span class="tool-name">Paper Pal</span><span class="price-badge price-mixed">Freemium</span></summary>
             <div class="tool-card-body"><p>Akadémiai szövegek szerkesztését segíti: kéziratellenőrzéssel jelzi a gyenge pontokat, ellenőrzi a folyóiratok technikai/nyelvi elvárásainak való megfelelést.</p><a class="tool-link" href="https://www.paperpal.com" target="_blank" rel="noopener">Megnyitás &#8599;</a></div>
           </details>
-          <details class="tool-card">
+          <details class="tool-card" data-price="mixed">
             <summary><span class="tool-name">Quillbot</span><span class="price-badge price-mixed">Freemium</span></summary>
             <div class="tool-card-body"><p>Nyelvhelyesség-ellenőrző, parafrazáló és összefoglaló eszköz. Alternatív megfogalmazásokat javasol, főleg nem anyanyelvi angolul íróknak.</p><a class="tool-link" href="https://www.quillbot.com" target="_blank" rel="noopener">Megnyitás &#8599;</a></div>
           </details>
-          <details class="tool-card">
+          <details class="tool-card" data-price="mixed">
             <summary><span class="tool-name">Trinka</span><span class="price-badge price-mixed">Freemium</span></summary>
             <div class="tool-card-body"><p>Kifejezetten akadémiai és műszaki írásra tervezett szerkesztőeszköz, a világosságot, koherenciát és akadémiai normáknak való megfelelést javítja.</p><a class="tool-link" href="https://www.trinka.ai" target="_blank" rel="noopener">Megnyitás &#8599;</a></div>
           </details>
-          <details class="tool-card">
+          <details class="tool-card" data-price="mixed">
             <summary><span class="tool-name">Wisio</span><span class="price-badge price-mixed">Freemium</span></summary>
             <div class="tool-card-body"><p>Tudományos írást támogató platform személyre szabott szövegjavaslatokkal, hivatkozáskinyeréssel, fordítással és angol nyelvi javítással.</p><a class="tool-link" href="https://www.producthunt.com/posts/wisio-app" target="_blank" rel="noopener">Megnyitás &#8599;</a></div>
           </details>
-          <details class="tool-card">
+          <details class="tool-card" data-price="mixed">
             <summary><span class="tool-name">Writefull</span><span class="price-badge price-mixed">Freemium</span></summary>
             <div class="tool-card-body"><p>Akadémiai szövegek szerkesztése nyelvi visszajelzéssel, főleg nem anyanyelvi szerzők kéziratainak nyelvi minőségéhez.</p><a class="tool-link" href="https://www.writefull.com" target="_blank" rel="noopener">Megnyitás &#8599;</a></div>
           </details>
-          <details class="tool-card">
+          <details class="tool-card" data-price="free">
             <summary><span class="tool-name">Zotero (+ AI-kiegészítők)</span><span class="price-badge price-free">Ingyenes</span></summary>
             <div class="tool-card-body"><p>Ingyenes, nyílt forráskódú hivatkozáskezelő; harmadik féltől származó AI-pluginokkal (pl. Beaver, PapersGPT) kiegészíthető.</p><a class="tool-link" href="https://www.zotero.org/" target="_blank" rel="noopener">Megnyitás &#8599;</a></div>
           </details>
-          <details class="tool-card">
+          <details class="tool-card" data-price="mixed">
             <summary><span class="tool-name">Mendeley</span><span class="price-badge price-mixed">Freemium</span></summary>
             <div class="tool-card-body"><p>„Reading Assistant” (PDF-összefoglalás, kérdés-válasz) és „Ask My Library” (szemantikus keresés a teljes könyvtárban) AI-funkciókkal bővített hivatkozáskezelő.</p><a class="tool-link" href="https://www.mendeley.com/" target="_blank" rel="noopener">Megnyitás &#8599;</a></div>
           </details>
-          <details class="tool-card">
+          <details class="tool-card" data-price="paid">
             <summary><span class="tool-name">EndNote</span><span class="price-badge price-paid">Fizetős</span></summary>
             <div class="tool-card-body"><p>„Research Assistant” AI-funkció: dokumentumokkal való chat, kulcsmegállapítások kiemelése, fordítás, ML-alapú „Find a Journal” eszköz.</p><a class="tool-link" href="https://endnote.com/" target="_blank" rel="noopener">Megnyitás &#8599;</a></div>
           </details>
-          <details class="tool-card">
+          <details class="tool-card" data-price="paid">
             <summary><span class="tool-name">Paperpile</span><span class="price-badge price-paid">Fizetős</span></summary>
             <div class="tool-card-body"><p>Google Workspace-be mélyen integrált hivatkozáskezelő; „Ask AI” (béta) funkciója PDF-eket küld közvetlenül ChatGPT/Claude/Gemini modelleknek elemzésre.</p><a class="tool-link" href="https://paperpile.com/" target="_blank" rel="noopener">Megnyitás &#8599;</a></div>
           </details>
-          <details class="tool-card">
+          <details class="tool-card" data-price="paid">
             <summary><span class="tool-name">RefWorks / EndNote Fusion</span><span class="price-badge price-paid">Fizetős</span></summary>
             <div class="tool-card-body"><p>2026-ban EndNote Fusionná alakult; Copyleaks-alapú AI plágium- és AI-tartalom-ellenőrző pilot funkció, AI-alapú dokumentumösszefoglalás és -keresés.</p><a class="tool-link" href="https://refworks.proquest.com/" target="_blank" rel="noopener">Megnyitás &#8599;</a></div>
           </details>
-          <details class="tool-card">
+          <details class="tool-card" data-price="paid">
             <summary><span class="tool-name">Turnitin</span><span class="price-badge price-paid">Fizetős</span></summary>
             <div class="tool-card-body"><p>Plágiumellenőrzés és AI-írás-detektálás; 16 000+ intézmény és számos tudományos folyóirat használja a benyújtott kéziratok ellenőrzésére.</p><a class="tool-link" href="https://www.turnitin.com/" target="_blank" rel="noopener">Megnyitás &#8599;</a></div>
           </details>
-          <details class="tool-card">
+          <details class="tool-card" data-price="paid">
             <summary><span class="tool-name">iThenticate</span><span class="price-badge price-paid">Fizetős</span></summary>
             <div class="tool-card-body"><p>Kutatók és kiadók számára fejlesztett plágium- és AI-írás-detektáló eszköz (ugyanaz a technológia, mint a Turnitiné, kutatói kéziratokra szabva).</p><a class="tool-link" href="https://www.ithenticate.com/" target="_blank" rel="noopener">Megnyitás &#8599;</a></div>
           </details>
-          <details class="tool-card">
+          <details class="tool-card" data-price="mixed">
             <summary><span class="tool-name">Copyleaks</span><span class="price-badge price-mixed">Freemium</span></summary>
             <div class="tool-card-body"><p>AI-tartalom-detektor és plágiumellenőrző, 30+ nyelven AI-detektálással, LMS-integrációkkal (Canvas, Moodle stb.).</p><a class="tool-link" href="https://copyleaks.com/" target="_blank" rel="noopener">Megnyitás &#8599;</a></div>
           </details>
-          <details class="tool-card">
+          <details class="tool-card" data-price="mixed">
             <summary><span class="tool-name">DeepL</span><span class="price-badge price-mixed">Freemium</span></summary>
             <div class="tool-card-body"><p>Mesterséges intelligenciát használó fordítóeszköz több nyelven — hasznos nem angol anyanyelvű kutatóknak az angol nyelvű kézirat megírásához.</p><a class="tool-link" href="https://www.deepl.com" target="_blank" rel="noopener">Megnyitás &#8599;</a></div>
           </details>
-          <details class="tool-card">
+          <details class="tool-card" data-price="mixed">
             <summary><span class="tool-name">Grammarly</span><span class="price-badge price-mixed">Freemium</span></summary>
             <div class="tool-card-body"><p>MI-alapú íróasszisztens, amely nyelvtani, stilisztikai és stílusjavaslatokkal segíti a szerzőt (Corvinus EDU-licenccel hallgatóknak is elérhető).</p><a class="tool-link" href="https://app.grammarly.com/" target="_blank" rel="noopener">Megnyitás &#8599;</a></div>
           </details>
-          <details class="tool-card">
+          <details class="tool-card" data-price="mixed">
             <summary><span class="tool-name">Pro Writing Aid</span><span class="price-badge price-mixed">Freemium</span></summary>
             <div class="tool-card-body"><p>Szerkesztő és írási segédprogram, amely gyakorlatias visszajelzésekkel segít a kézirat javításában (hasonló a Grammarlyhez).</p><a class="tool-link" href="https://prowritingaid.com/" target="_blank" rel="noopener">Megnyitás &#8599;</a></div>
           </details>
-          <details class="tool-card">
+          <details class="tool-card" data-price="mixed">
             <summary><span class="tool-name">WriteSonic</span><span class="price-badge price-mixed">Freemium</span></summary>
             <div class="tool-card-body"><p>MI-alapú íróasszisztens, amely különböző célokra (e-mail, összefoglaló, jelentés) készít szöveget — általános írástámogatásra használható kutatási kontextusban is.</p><a class="tool-link" href="https://writesonic.com/" target="_blank" rel="noopener">Megnyitás &#8599;</a></div>
           </details>
-          <details class="tool-card">
+          <details class="tool-card" data-price="mixed">
             <summary><span class="tool-name">Speechify</span><span class="price-badge price-mixed">Freemium</span></summary>
             <div class="tool-card-body"><p>Írott szöveget hangosan felolvasó MI-eszköz — hasznos a saját kézirat hangos korrektúrájához (hibák, döcögős mondatok kiszűrése).</p><a class="tool-link" href="https://speechify.com/" target="_blank" rel="noopener">Megnyitás &#8599;</a></div>
           </details>
-          <details class="tool-card">
+          <details class="tool-card" data-price="mixed">
             <summary><span class="tool-name">GPTZero</span><span class="price-badge price-mixed">Freemium</span></summary>
             <div class="tool-card-body"><p>Felismeri az MI által generált szöveget, segít azonosítani a lehetséges etikai vétségeket a kézirat benyújtása előtt.</p><a class="tool-link" href="https://gptzero.me/" target="_blank" rel="noopener">Megnyitás &#8599;</a></div>
           </details>
-          <details class="tool-card">
+          <details class="tool-card" data-price="mixed">
             <summary><span class="tool-name">ZeroGPT</span><span class="price-badge price-mixed">Freemium</span></summary>
             <div class="tool-card-body"><p>Felismeri az MI által generált szöveget, segít azonosítani a lehetséges etikai vétségeket.</p><a class="tool-link" href="https://www.zerogpt.com/" target="_blank" rel="noopener">Megnyitás &#8599;</a></div>
           </details>
@@ -1883,116 +1889,116 @@ nem szerepel benne, írd: "Nem tudom a forrás alapján."</pre>
         <div class="scroll"><table>
           <thead><tr><th>Eszköz</th><th>Rövid leírás</th><th>Ár</th><th>Link</th></tr></thead>
           <tbody>
-            <tr><td class="name">Elsevier Journal Finder</td><td>AI/NLP-alapú eszköz, amely a kézirat absztraktja/kulcsszavai alapján megfelelő Elsevier-folyóiratokat ajánl.</td><td>Ingyenes</td><td><a href="https://journalfinder.elsevier.com/" target="_blank" rel="noopener">journalfinder.elsevier.com</a></td></tr>
-            <tr><td class="name">Springer Nature Journal Suggester</td><td>A Springer Nature teljes portfólióját (Springer, BMC, Palgrave) átfésülő, szemantikus hasonlóság alapján működő folyóirat-ajánló.</td><td>Ingyenes</td><td><a href="https://journalsuggester.springer.com/" target="_blank" rel="noopener">journalsuggester.springer.com</a></td></tr>
-            <tr><td class="name">JANE (Journal/Author Name Estimator)</td><td>A cím/absztrakt alapján a PubMed-adatbázisban keres hasonló cikkeket, folyóiratokat és szerzőket; elsősorban biomedikai területen hasznos.</td><td>Ingyenes</td><td><a href="https://jane.biosemantics.org/" target="_blank" rel="noopener">jane.biosemantics.org</a></td></tr>
-            <tr><td class="name">Paperpal Preflight</td><td>AI-alapú, benyújtás előtti kézirat-átvilágító eszköz: nyelvi/grammatikai hibák, hiányzó etikai/finanszírozási nyilatkozatok, formázási hibák (30+ ellenőrzési pont).</td><td>Ingyenes</td><td><a href="https://paperpal.com/preflight" target="_blank" rel="noopener">paperpal.com/preflight</a></td></tr>
-            <tr><td class="name">StatReviewer</td><td>A statisztikai és metodológiai riportolás integritását automatikusan ellenőrző, szerkesztői rendszerekbe integrált AI-eszköz; kiadók használják bírálati előszűrésre. (A statreviewer.com domain megszűnt, az eszköz az Aries Systems/Editorial Manager alatt él tovább.)</td><td>Fizetős</td><td><a href="https://www.ariessys.com/software/statreviewer/" target="_blank" rel="noopener">ariessys.com/software/statreviewer</a></td></tr>
-            <tr><td class="name">Penelope.ai</td><td>Kéziratok szerkezetét, etikai nyilatkozatait, statisztikai jelentését és hivatkozásait automatikusan ellenőrző eszköz (pl. PRISMA/CONSORT megfelelés).</td><td>Freemium</td><td><a href="https://www.penelope.ai/" target="_blank" rel="noopener">www.penelope.ai</a></td></tr>
-            <tr><td class="name">Mind the Graph</td><td>AI-alapú tudományos poszter-, infografika- és grafikus absztrakt-készítő tudósok számára, tudományosan pontos illusztrációkkal.</td><td>Freemium</td><td><a href="https://mindthegraph.com/" target="_blank" rel="noopener">mindthegraph.com</a></td></tr>
-            <tr><td class="name">Gamma</td><td>AI-alapú előadás/dia-generátor, amely szöveges tartalomból (pl. absztraktból, eredményekből) strukturált, vizuálisan kész konferencia-előadást készít.</td><td>Freemium</td><td><a href="https://gamma.app/" target="_blank" rel="noopener">gamma.app</a></td></tr>
-            <tr><td class="name">Kudos (GrowKudos)</td><td>Platform, amely segít a publikációk közérthető összefoglalásában, kontextusba helyezésében és megosztásában, és nyomon követi az elérést/Altmetric-pontszámot.</td><td>Freemium</td><td><a href="https://www.growkudos.com/" target="_blank" rel="noopener">www.growkudos.com</a></td></tr>
-            <tr><td class="name">ELSA</td><td>Angol nyelvi beszédkészség-fejlesztő MI-alkalmazás (English Language Speech Assistant); konferencia-előadásra készülő, nem anyanyelvi kutatóknak hasznos.</td><td>Freemium</td><td><a href="https://elsaspeak.com/en/" target="_blank" rel="noopener">elsaspeak.com/en</a></td></tr>
-            <tr><td class="name">Elevenlabs</td><td>MI-alapú hangeszköz valósághű szövegfelolvasással, hangklónozással és többnyelvű hanganyag-készítéssel — pl. kutatási összefoglalók audio-verziójához.</td><td>Freemium</td><td><a href="https://elevenlabs.io/" target="_blank" rel="noopener">elevenlabs.io</a></td></tr>
-            <tr><td class="name">Adobe Firefly</td><td>Szövegből kép és videó készítő platform — poszterek, prezentációs ábrák generálásához.</td><td>Freemium</td><td><a href="https://firefly.adobe.com/" target="_blank" rel="noopener">firefly.adobe.com</a></td></tr>
-            <tr><td class="name">AutoDraw</td><td>Gépi tanulást és művészi inputot kombináló eszköz gyors rajzok, illusztrációk készítéséhez (pl. koncepcióábrák vázlatolásához).</td><td>Ingyenes</td><td><a href="https://autodraw.com" target="_blank" rel="noopener">autodraw.com</a></td></tr>
-            <tr><td class="name">Bing Image Creator</td><td>MI-alapú szövegből kép/videó készítő eszköz prezentációs anyagokhoz.</td><td>Ingyenes</td><td><a href="https://www.bing.com/images/create" target="_blank" rel="noopener">www.bing.com/images/create</a></td></tr>
-            <tr><td class="name">Canva</td><td>Grafikai tervezőeszköz MI-alapú funkciókkal — poszterek, konferencia-diák, infografikák gyors elkészítéséhez.</td><td>Freemium</td><td><a href="https://www.canva.com/" target="_blank" rel="noopener">www.canva.com</a></td></tr>
-            <tr><td class="name">Dall-E</td><td>MI-modell, amely szöveges leírásokból képeket generál, pl. tudományos illusztrációkhoz.</td><td>Fizetős</td><td><a href="https://openai.com/index/dall-e-3/" target="_blank" rel="noopener">openai.com/index/dall-e-3</a></td></tr>
-            <tr><td class="name">ELAI</td><td>MI-alapú szövegből videót készítő eszköz — pl. kutatási eredmények rövid videós összefoglalójához.</td><td>Fizetős</td><td><a href="https://elai.io" target="_blank" rel="noopener">elai.io</a></td></tr>
-            <tr><td class="name">Leonardo.AI</td><td>Mesterséges intelligenciával működő művészeti alkotóeszköz, vizuális anyagok (poszter, illusztráció) készítéséhez.</td><td>Freemium</td><td><a href="https://leonardo.ai/" target="_blank" rel="noopener">leonardo.ai</a></td></tr>
-            <tr><td class="name">Midjourney</td><td>Mesterséges intelligenciával működő képalkotó eszköz, magas minőségű vizuális anyagok készítéséhez.</td><td>Fizetős</td><td><a href="https://www.midjourney.com/" target="_blank" rel="noopener">www.midjourney.com</a></td></tr>
-            <tr><td class="name">Open Art</td><td>Mesterséges intelligenciával működő művészeti alkotóeszköz tudományos illusztrációkhoz, posztertervekhez.</td><td>Freemium</td><td><a href="https://openart.ai" target="_blank" rel="noopener">openart.ai</a></td></tr>
-            <tr><td class="name">Stable Diffusion (Stability AI)</td><td>Nyílt, MI-alapú képgeneráló modellcsalád tudományos illusztrációk és poszterábrák készítéséhez.</td><td>Ingyenes/Freemium</td><td><a href="https://stability.ai/stable-image" target="_blank" rel="noopener">stability.ai/stable-image</a></td></tr>
-            <tr><td class="name">Vyond</td><td>MI-alapú videókészítő platform, amely egyszerű parancsokból szerkeszthető videókat készít — pl. kutatás-ismertető animációkhoz.</td><td>Fizetős</td><td><a href="https://www.vyond.com/plans/" target="_blank" rel="noopener">www.vyond.com/plans</a></td></tr>
+            <tr data-price="free"><td class="name">Elsevier Journal Finder</td><td>AI/NLP-alapú eszköz, amely a kézirat absztraktja/kulcsszavai alapján megfelelő Elsevier-folyóiratokat ajánl.</td><td>Ingyenes</td><td><a href="https://journalfinder.elsevier.com/" target="_blank" rel="noopener">journalfinder.elsevier.com</a></td></tr>
+            <tr data-price="free"><td class="name">Springer Nature Journal Suggester</td><td>A Springer Nature teljes portfólióját (Springer, BMC, Palgrave) átfésülő, szemantikus hasonlóság alapján működő folyóirat-ajánló.</td><td>Ingyenes</td><td><a href="https://journalsuggester.springer.com/" target="_blank" rel="noopener">journalsuggester.springer.com</a></td></tr>
+            <tr data-price="free"><td class="name">JANE (Journal/Author Name Estimator)</td><td>A cím/absztrakt alapján a PubMed-adatbázisban keres hasonló cikkeket, folyóiratokat és szerzőket; elsősorban biomedikai területen hasznos.</td><td>Ingyenes</td><td><a href="https://jane.biosemantics.org/" target="_blank" rel="noopener">jane.biosemantics.org</a></td></tr>
+            <tr data-price="free"><td class="name">Paperpal Preflight</td><td>AI-alapú, benyújtás előtti kézirat-átvilágító eszköz: nyelvi/grammatikai hibák, hiányzó etikai/finanszírozási nyilatkozatok, formázási hibák (30+ ellenőrzési pont).</td><td>Ingyenes</td><td><a href="https://paperpal.com/preflight" target="_blank" rel="noopener">paperpal.com/preflight</a></td></tr>
+            <tr data-price="paid"><td class="name">StatReviewer</td><td>A statisztikai és metodológiai riportolás integritását automatikusan ellenőrző, szerkesztői rendszerekbe integrált AI-eszköz; kiadók használják bírálati előszűrésre. (A statreviewer.com domain megszűnt, az eszköz az Aries Systems/Editorial Manager alatt él tovább.)</td><td>Fizetős</td><td><a href="https://www.ariessys.com/software/statreviewer/" target="_blank" rel="noopener">ariessys.com/software/statreviewer</a></td></tr>
+            <tr data-price="mixed"><td class="name">Penelope.ai</td><td>Kéziratok szerkezetét, etikai nyilatkozatait, statisztikai jelentését és hivatkozásait automatikusan ellenőrző eszköz (pl. PRISMA/CONSORT megfelelés).</td><td>Freemium</td><td><a href="https://www.penelope.ai/" target="_blank" rel="noopener">www.penelope.ai</a></td></tr>
+            <tr data-price="mixed"><td class="name">Mind the Graph</td><td>AI-alapú tudományos poszter-, infografika- és grafikus absztrakt-készítő tudósok számára, tudományosan pontos illusztrációkkal.</td><td>Freemium</td><td><a href="https://mindthegraph.com/" target="_blank" rel="noopener">mindthegraph.com</a></td></tr>
+            <tr data-price="mixed"><td class="name">Gamma</td><td>AI-alapú előadás/dia-generátor, amely szöveges tartalomból (pl. absztraktból, eredményekből) strukturált, vizuálisan kész konferencia-előadást készít.</td><td>Freemium</td><td><a href="https://gamma.app/" target="_blank" rel="noopener">gamma.app</a></td></tr>
+            <tr data-price="mixed"><td class="name">Kudos (GrowKudos)</td><td>Platform, amely segít a publikációk közérthető összefoglalásában, kontextusba helyezésében és megosztásában, és nyomon követi az elérést/Altmetric-pontszámot.</td><td>Freemium</td><td><a href="https://www.growkudos.com/" target="_blank" rel="noopener">www.growkudos.com</a></td></tr>
+            <tr data-price="mixed"><td class="name">ELSA</td><td>Angol nyelvi beszédkészség-fejlesztő MI-alkalmazás (English Language Speech Assistant); konferencia-előadásra készülő, nem anyanyelvi kutatóknak hasznos.</td><td>Freemium</td><td><a href="https://elsaspeak.com/en/" target="_blank" rel="noopener">elsaspeak.com/en</a></td></tr>
+            <tr data-price="mixed"><td class="name">Elevenlabs</td><td>MI-alapú hangeszköz valósághű szövegfelolvasással, hangklónozással és többnyelvű hanganyag-készítéssel — pl. kutatási összefoglalók audio-verziójához.</td><td>Freemium</td><td><a href="https://elevenlabs.io/" target="_blank" rel="noopener">elevenlabs.io</a></td></tr>
+            <tr data-price="mixed"><td class="name">Adobe Firefly</td><td>Szövegből kép és videó készítő platform — poszterek, prezentációs ábrák generálásához.</td><td>Freemium</td><td><a href="https://firefly.adobe.com/" target="_blank" rel="noopener">firefly.adobe.com</a></td></tr>
+            <tr data-price="free"><td class="name">AutoDraw</td><td>Gépi tanulást és művészi inputot kombináló eszköz gyors rajzok, illusztrációk készítéséhez (pl. koncepcióábrák vázlatolásához).</td><td>Ingyenes</td><td><a href="https://autodraw.com" target="_blank" rel="noopener">autodraw.com</a></td></tr>
+            <tr data-price="free"><td class="name">Bing Image Creator</td><td>MI-alapú szövegből kép/videó készítő eszköz prezentációs anyagokhoz.</td><td>Ingyenes</td><td><a href="https://www.bing.com/images/create" target="_blank" rel="noopener">www.bing.com/images/create</a></td></tr>
+            <tr data-price="mixed"><td class="name">Canva</td><td>Grafikai tervezőeszköz MI-alapú funkciókkal — poszterek, konferencia-diák, infografikák gyors elkészítéséhez.</td><td>Freemium</td><td><a href="https://www.canva.com/" target="_blank" rel="noopener">www.canva.com</a></td></tr>
+            <tr data-price="paid"><td class="name">Dall-E</td><td>MI-modell, amely szöveges leírásokból képeket generál, pl. tudományos illusztrációkhoz.</td><td>Fizetős</td><td><a href="https://openai.com/index/dall-e-3/" target="_blank" rel="noopener">openai.com/index/dall-e-3</a></td></tr>
+            <tr data-price="paid"><td class="name">ELAI</td><td>MI-alapú szövegből videót készítő eszköz — pl. kutatási eredmények rövid videós összefoglalójához.</td><td>Fizetős</td><td><a href="https://elai.io" target="_blank" rel="noopener">elai.io</a></td></tr>
+            <tr data-price="mixed"><td class="name">Leonardo.AI</td><td>Mesterséges intelligenciával működő művészeti alkotóeszköz, vizuális anyagok (poszter, illusztráció) készítéséhez.</td><td>Freemium</td><td><a href="https://leonardo.ai/" target="_blank" rel="noopener">leonardo.ai</a></td></tr>
+            <tr data-price="paid"><td class="name">Midjourney</td><td>Mesterséges intelligenciával működő képalkotó eszköz, magas minőségű vizuális anyagok készítéséhez.</td><td>Fizetős</td><td><a href="https://www.midjourney.com/" target="_blank" rel="noopener">www.midjourney.com</a></td></tr>
+            <tr data-price="mixed"><td class="name">Open Art</td><td>Mesterséges intelligenciával működő művészeti alkotóeszköz tudományos illusztrációkhoz, posztertervekhez.</td><td>Freemium</td><td><a href="https://openart.ai" target="_blank" rel="noopener">openart.ai</a></td></tr>
+            <tr data-price="mixed"><td class="name">Stable Diffusion (Stability AI)</td><td>Nyílt, MI-alapú képgeneráló modellcsalád tudományos illusztrációk és poszterábrák készítéséhez.</td><td>Ingyenes/Freemium</td><td><a href="https://stability.ai/stable-image" target="_blank" rel="noopener">stability.ai/stable-image</a></td></tr>
+            <tr data-price="paid"><td class="name">Vyond</td><td>MI-alapú videókészítő platform, amely egyszerű parancsokból szerkeszthető videókat készít — pl. kutatás-ismertető animációkhoz.</td><td>Fizetős</td><td><a href="https://www.vyond.com/plans/" target="_blank" rel="noopener">www.vyond.com/plans</a></td></tr>
           </tbody>
         </table></div>
         <div class="tool-cards">
-          <details class="tool-card">
+          <details class="tool-card" data-price="free">
             <summary><span class="tool-name">Elsevier Journal Finder</span><span class="price-badge price-free">Ingyenes</span></summary>
             <div class="tool-card-body"><p>AI/NLP-alapú eszköz, amely a kézirat absztraktja/kulcsszavai alapján megfelelő Elsevier-folyóiratokat ajánl.</p><a class="tool-link" href="https://journalfinder.elsevier.com/" target="_blank" rel="noopener">Megnyitás &#8599;</a></div>
           </details>
-          <details class="tool-card">
+          <details class="tool-card" data-price="free">
             <summary><span class="tool-name">Springer Nature Journal Suggester</span><span class="price-badge price-free">Ingyenes</span></summary>
             <div class="tool-card-body"><p>A Springer Nature teljes portfólióját (Springer, BMC, Palgrave) átfésülő, szemantikus hasonlóság alapján működő folyóirat-ajánló.</p><a class="tool-link" href="https://journalsuggester.springer.com/" target="_blank" rel="noopener">Megnyitás &#8599;</a></div>
           </details>
-          <details class="tool-card">
+          <details class="tool-card" data-price="free">
             <summary><span class="tool-name">JANE (Journal/Author Name Estimator)</span><span class="price-badge price-free">Ingyenes</span></summary>
             <div class="tool-card-body"><p>A cím/absztrakt alapján a PubMed-adatbázisban keres hasonló cikkeket, folyóiratokat és szerzőket; elsősorban biomedikai területen hasznos.</p><a class="tool-link" href="https://jane.biosemantics.org/" target="_blank" rel="noopener">Megnyitás &#8599;</a></div>
           </details>
-          <details class="tool-card">
+          <details class="tool-card" data-price="free">
             <summary><span class="tool-name">Paperpal Preflight</span><span class="price-badge price-free">Ingyenes</span></summary>
             <div class="tool-card-body"><p>AI-alapú, benyújtás előtti kézirat-átvilágító eszköz: nyelvi/grammatikai hibák, hiányzó etikai/finanszírozási nyilatkozatok, formázási hibák (30+ ellenőrzési pont).</p><a class="tool-link" href="https://paperpal.com/preflight" target="_blank" rel="noopener">Megnyitás &#8599;</a></div>
           </details>
-          <details class="tool-card">
+          <details class="tool-card" data-price="paid">
             <summary><span class="tool-name">StatReviewer</span><span class="price-badge price-paid">Fizetős</span></summary>
             <div class="tool-card-body"><p>A statisztikai és metodológiai riportolás integritását automatikusan ellenőrző, szerkesztői rendszerekbe integrált AI-eszköz; kiadók használják bírálati előszűrésre. (A statreviewer.com domain megszűnt, az eszköz az Aries Systems/Editorial Manager alatt él tovább.)</p><a class="tool-link" href="https://www.ariessys.com/software/statreviewer/" target="_blank" rel="noopener">Megnyitás &#8599;</a></div>
           </details>
-          <details class="tool-card">
+          <details class="tool-card" data-price="mixed">
             <summary><span class="tool-name">Penelope.ai</span><span class="price-badge price-mixed">Freemium</span></summary>
             <div class="tool-card-body"><p>Kéziratok szerkezetét, etikai nyilatkozatait, statisztikai jelentését és hivatkozásait automatikusan ellenőrző eszköz (pl. PRISMA/CONSORT megfelelés).</p><a class="tool-link" href="https://www.penelope.ai/" target="_blank" rel="noopener">Megnyitás &#8599;</a></div>
           </details>
-          <details class="tool-card">
+          <details class="tool-card" data-price="mixed">
             <summary><span class="tool-name">Mind the Graph</span><span class="price-badge price-mixed">Freemium</span></summary>
             <div class="tool-card-body"><p>AI-alapú tudományos poszter-, infografika- és grafikus absztrakt-készítő tudósok számára, tudományosan pontos illusztrációkkal.</p><a class="tool-link" href="https://mindthegraph.com/" target="_blank" rel="noopener">Megnyitás &#8599;</a></div>
           </details>
-          <details class="tool-card">
+          <details class="tool-card" data-price="mixed">
             <summary><span class="tool-name">Gamma</span><span class="price-badge price-mixed">Freemium</span></summary>
             <div class="tool-card-body"><p>AI-alapú előadás/dia-generátor, amely szöveges tartalomból (pl. absztraktból, eredményekből) strukturált, vizuálisan kész konferencia-előadást készít.</p><a class="tool-link" href="https://gamma.app/" target="_blank" rel="noopener">Megnyitás &#8599;</a></div>
           </details>
-          <details class="tool-card">
+          <details class="tool-card" data-price="mixed">
             <summary><span class="tool-name">Kudos (GrowKudos)</span><span class="price-badge price-mixed">Freemium</span></summary>
             <div class="tool-card-body"><p>Platform, amely segít a publikációk közérthető összefoglalásában, kontextusba helyezésében és megosztásában, és nyomon követi az elérést/Altmetric-pontszámot.</p><a class="tool-link" href="https://www.growkudos.com/" target="_blank" rel="noopener">Megnyitás &#8599;</a></div>
           </details>
-          <details class="tool-card">
+          <details class="tool-card" data-price="mixed">
             <summary><span class="tool-name">ELSA</span><span class="price-badge price-mixed">Freemium</span></summary>
             <div class="tool-card-body"><p>Angol nyelvi beszédkészség-fejlesztő MI-alkalmazás (English Language Speech Assistant); konferencia-előadásra készülő, nem anyanyelvi kutatóknak hasznos.</p><a class="tool-link" href="https://elsaspeak.com/en/" target="_blank" rel="noopener">Megnyitás &#8599;</a></div>
           </details>
-          <details class="tool-card">
+          <details class="tool-card" data-price="mixed">
             <summary><span class="tool-name">Elevenlabs</span><span class="price-badge price-mixed">Freemium</span></summary>
             <div class="tool-card-body"><p>MI-alapú hangeszköz valósághű szövegfelolvasással, hangklónozással és többnyelvű hanganyag-készítéssel — pl. kutatási összefoglalók audio-verziójához.</p><a class="tool-link" href="https://elevenlabs.io/" target="_blank" rel="noopener">Megnyitás &#8599;</a></div>
           </details>
-          <details class="tool-card">
+          <details class="tool-card" data-price="mixed">
             <summary><span class="tool-name">Adobe Firefly</span><span class="price-badge price-mixed">Freemium</span></summary>
             <div class="tool-card-body"><p>Szövegből kép és videó készítő platform — poszterek, prezentációs ábrák generálásához.</p><a class="tool-link" href="https://firefly.adobe.com/" target="_blank" rel="noopener">Megnyitás &#8599;</a></div>
           </details>
-          <details class="tool-card">
+          <details class="tool-card" data-price="free">
             <summary><span class="tool-name">AutoDraw</span><span class="price-badge price-free">Ingyenes</span></summary>
             <div class="tool-card-body"><p>Gépi tanulást és művészi inputot kombináló eszköz gyors rajzok, illusztrációk készítéséhez (pl. koncepcióábrák vázlatolásához).</p><a class="tool-link" href="https://autodraw.com" target="_blank" rel="noopener">Megnyitás &#8599;</a></div>
           </details>
-          <details class="tool-card">
+          <details class="tool-card" data-price="free">
             <summary><span class="tool-name">Bing Image Creator</span><span class="price-badge price-free">Ingyenes</span></summary>
             <div class="tool-card-body"><p>MI-alapú szövegből kép/videó készítő eszköz prezentációs anyagokhoz.</p><a class="tool-link" href="https://www.bing.com/images/create" target="_blank" rel="noopener">Megnyitás &#8599;</a></div>
           </details>
-          <details class="tool-card">
+          <details class="tool-card" data-price="mixed">
             <summary><span class="tool-name">Canva</span><span class="price-badge price-mixed">Freemium</span></summary>
             <div class="tool-card-body"><p>Grafikai tervezőeszköz MI-alapú funkciókkal — poszterek, konferencia-diák, infografikák gyors elkészítéséhez.</p><a class="tool-link" href="https://www.canva.com/" target="_blank" rel="noopener">Megnyitás &#8599;</a></div>
           </details>
-          <details class="tool-card">
+          <details class="tool-card" data-price="paid">
             <summary><span class="tool-name">Dall-E</span><span class="price-badge price-paid">Fizetős</span></summary>
             <div class="tool-card-body"><p>MI-modell, amely szöveges leírásokból képeket generál, pl. tudományos illusztrációkhoz.</p><a class="tool-link" href="https://openai.com/index/dall-e-3/" target="_blank" rel="noopener">Megnyitás &#8599;</a></div>
           </details>
-          <details class="tool-card">
+          <details class="tool-card" data-price="paid">
             <summary><span class="tool-name">ELAI</span><span class="price-badge price-paid">Fizetős</span></summary>
             <div class="tool-card-body"><p>MI-alapú szövegből videót készítő eszköz — pl. kutatási eredmények rövid videós összefoglalójához.</p><a class="tool-link" href="https://elai.io" target="_blank" rel="noopener">Megnyitás &#8599;</a></div>
           </details>
-          <details class="tool-card">
+          <details class="tool-card" data-price="mixed">
             <summary><span class="tool-name">Leonardo.AI</span><span class="price-badge price-mixed">Freemium</span></summary>
             <div class="tool-card-body"><p>Mesterséges intelligenciával működő művészeti alkotóeszköz, vizuális anyagok (poszter, illusztráció) készítéséhez.</p><a class="tool-link" href="https://leonardo.ai/" target="_blank" rel="noopener">Megnyitás &#8599;</a></div>
           </details>
-          <details class="tool-card">
+          <details class="tool-card" data-price="paid">
             <summary><span class="tool-name">Midjourney</span><span class="price-badge price-paid">Fizetős</span></summary>
             <div class="tool-card-body"><p>Mesterséges intelligenciával működő képalkotó eszköz, magas minőségű vizuális anyagok készítéséhez.</p><a class="tool-link" href="https://www.midjourney.com/" target="_blank" rel="noopener">Megnyitás &#8599;</a></div>
           </details>
-          <details class="tool-card">
+          <details class="tool-card" data-price="mixed">
             <summary><span class="tool-name">Open Art</span><span class="price-badge price-mixed">Freemium</span></summary>
             <div class="tool-card-body"><p>Mesterséges intelligenciával működő művészeti alkotóeszköz tudományos illusztrációkhoz, posztertervekhez.</p><a class="tool-link" href="https://openart.ai" target="_blank" rel="noopener">Megnyitás &#8599;</a></div>
           </details>
-          <details class="tool-card">
+          <details class="tool-card" data-price="mixed">
             <summary><span class="tool-name">Stable Diffusion (Stability AI)</span><span class="price-badge price-mixed">Ingyenes/Freemium</span></summary>
             <div class="tool-card-body"><p>Nyílt, MI-alapú képgeneráló modellcsalád tudományos illusztrációk és poszterábrák készítéséhez.</p><a class="tool-link" href="https://stability.ai/stable-image" target="_blank" rel="noopener">Megnyitás &#8599;</a></div>
           </details>
-          <details class="tool-card">
+          <details class="tool-card" data-price="paid">
             <summary><span class="tool-name">Vyond</span><span class="price-badge price-paid">Fizetős</span></summary>
             <div class="tool-card-body"><p>MI-alapú videókészítő platform, amely egyszerű parancsokból szerkeszthető videókat készít — pl. kutatás-ismertető animációkhoz.</p><a class="tool-link" href="https://www.vyond.com/plans/" target="_blank" rel="noopener">Megnyitás &#8599;</a></div>
           </details>
@@ -2308,13 +2314,15 @@ nem szerepel benne, írd: "Nem tudom a forrás alapján."</pre>
     });
   }
 
-  // ---- Tab 2: category filter + search ----
-  var chips = document.querySelectorAll('.chip');
+  // ---- Tab 2: category filter + price filter + search ----
+  var catChips = document.querySelectorAll('#cat-chips .chip');
+  var priceChips = document.querySelectorAll('#price-chips .chip');
   var groups = document.querySelectorAll('section.group');
   var q = document.getElementById('q');
   var count = document.getElementById('count');
   var empty = document.getElementById('empty');
   var cat = 'all';
+  var price = 'all';
 
   function apply() {
     var term = q.value.trim().toLowerCase();
@@ -2323,12 +2331,14 @@ nem szerepel benne, írd: "Nem tudom a forrás alapján."</pre>
       var show = cat === 'all' || g.getAttribute('data-group') === cat;
       var visible = 0;
       g.querySelectorAll('tbody tr').forEach(function (tr) {
-        var match = !term || tr.textContent.toLowerCase().indexOf(term) !== -1;
+        var priceMatch = price === 'all' || tr.getAttribute('data-price') === price;
+        var match = priceMatch && (!term || tr.textContent.toLowerCase().indexOf(term) !== -1);
         tr.hidden = !match;
         if (match) visible++;
       });
       g.querySelectorAll('.tool-card').forEach(function (card) {
-        var match = !term || card.textContent.toLowerCase().indexOf(term) !== -1;
+        var priceMatch = price === 'all' || card.getAttribute('data-price') === price;
+        var match = priceMatch && (!term || card.textContent.toLowerCase().indexOf(term) !== -1);
         card.hidden = !match;
       });
       g.hidden = !show || visible === 0;
@@ -2338,7 +2348,7 @@ nem szerepel benne, írd: "Nem tudom a forrás alapján."</pre>
       if (acc) {
         if (window.matchMedia && window.matchMedia('(min-width: 641px)').matches) {
           acc.open = true;
-        } else if (term) {
+        } else if (term || price !== 'all') {
           acc.open = visible > 0;
         } else if (cat !== 'all') {
           acc.open = true;
@@ -2347,14 +2357,21 @@ nem szerepel benne, írd: "Nem tudom a forrás alapján."</pre>
         }
       }
     });
-    count.textContent = (term || cat !== 'all') ? total + ' találat' : '';
+    count.textContent = (term || cat !== 'all' || price !== 'all') ? total + ' találat' : '';
     empty.classList.toggle('show', total === 0);
   }
 
-  chips.forEach(function (c) {
+  catChips.forEach(function (c) {
     c.addEventListener('click', function () {
       cat = c.getAttribute('data-cat');
-      chips.forEach(function (x) { x.setAttribute('aria-pressed', x === c ? 'true' : 'false'); });
+      catChips.forEach(function (x) { x.setAttribute('aria-pressed', x === c ? 'true' : 'false'); });
+      apply();
+    });
+  });
+  priceChips.forEach(function (c) {
+    c.addEventListener('click', function () {
+      price = c.getAttribute('data-price');
+      priceChips.forEach(function (x) { x.setAttribute('aria-pressed', x === c ? 'true' : 'false'); });
       apply();
     });
   });
